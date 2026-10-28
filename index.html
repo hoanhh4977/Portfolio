@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyễn Hoàng Anh – Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="star" viewBox="0 0 24 24"><path d="M12 0C12.8 6.6 17.4 11.2 24 12 17.4 12.8 12.8 17.4 12 24 11.2 17.4 6.6 12.8 0 12 6.6 11.2 11.2 6.6 12 0z" fill="currentColor"/></symbol>
+  </svg>
+
+  <header class="nav">
+    <a class="logo" href="#top"><svg class="star"><use href="#star"/></svg> Hoanhh</a>
+    <nav>
+      <a href="#about">Giới thiệu</a>
+      <a href="#skills">Kỹ năng</a>
+      <a href="#projects">Dự án</a>
+      <a href="#contact">Liên hệ</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <p class="kicker"><em>Nguyễn Hoàng Anh</em> <svg class="star"><use href="#star"/></svg> Sinh viên CNTT</p>
+        <h1>Port<em>folio</em><svg class="star burst"><use href="#star"/></svg></h1>
+        <p class="tagline">Từ dòng code đến sản phẩm hữu ích.</p>
+        <div class="hero-foot">
+          <a class="pill" href="mailto:hoanhhbmt49@gmail.com">hoanhhbmt49@gmail.com</a>
+          <span class="years">K24 · 2026</span>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="polaroids">
+          <img class="pol p1" src="images/avatar.jpg" alt="Ảnh của Nguyễn Hoàng Anh">
+          <img class="pol p2" src="images/avatar.jpg" alt="">
+        </div>
+        <div class="glass" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- GIỚI THIỆU -->
+    <section class="about" id="about">
+      <img class="banner" src="images/avatar.jpg" alt="Ảnh bìa giới thiệu" loading="lazy">
+      <div class="two-col">
+        <h2>Giới thiệu.<span class="rule"></span></h2>
+        <div class="text">
+          <p class="lead">Sinh viên Công nghệ thông tin đam mê xây dựng web và tìm hiểu xử lý ngôn ngữ tự nhiên (NLP).</p>
+          <p>Mình có nền tảng về lập trình hướng đối tượng (OOP) với Java và Python, làm giao diện bằng HTML và CSS, và xây dựng API với FastAPI. Hiện mình đang học NLP và tìm hiểu kiến trúc Transformer, nền tảng của các mô hình ngôn ngữ hiện đại.</p>
+          <p>Mình muốn kết hợp kỹ năng làm web với AI để tạo ra những sản phẩm hữu ích và dễ sử dụng.</p>
+          <dl class="facts">
+            <div><dt>Trường</dt><dd>Đại học Giao thông vận tải TP.HCM (University of Transport Ho Chi Minh City)</dd></div>
+            <div><dt>Ngành</dt><dd>Công nghệ thông tin</dd></div>
+            <div><dt>Khóa</dt><dd>24</dd></div>
+            <div><dt>GPA</dt><dd>3.34</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- KỸ NĂNG -->
+    <section class="skills" id="skills">
+      <div class="skills-art">
+        <img class="pol s2" src="images/library-dashboard.jpg" alt="Giao diện Bookary" loading="lazy">
+      </div>
+      <div class="skills-body">
+        <h2>Kỹ năng.<span class="rule"></span></h2>
+        <ul class="pills">
+          <li class="filled">HTML <svg class="star"><use href="#star"/></svg></li>
+          <li>CSS <svg class="star"><use href="#star"/></svg></li>
+          <li>Java <svg class="star"><use href="#star"/></svg></li>
+          <li class="filled">Python <svg class="star"><use href="#star"/></svg></li>
+          <li class="filled">OOP <svg class="star"><use href="#star"/></svg></li>
+          <li>FastAPI <svg class="star"><use href="#star"/></svg></li>
+          <li>NLP <svg class="star"><use href="#star"/></svg></li>
+          <li class="filled">Transformer <svg class="star"><use href="#star"/></svg></li>
+        </ul>
+        <p class="note">Đang học NLP và kiến trúc Transformer; nền tảng lập trình hướng đối tượng với Java và Python.</p>
+      </div>
+    </section>
+
+    <!-- DỰ ÁN -->
+    <section class="projects" id="projects">
+      <h2>Dự án.<svg class="star burst"><use href="#star"/></svg><span class="rule"></span></h2>
+      <div class="grid">
+        <article class="card featured">
+          <img class="shot" src="images/library-dashboard.jpg" alt="Giao diện dashboard quản trị viên của Bookary" loading="lazy">
+          <div class="info">
+            <p class="num">01</p>
+            <h3>Bookary – Hệ thống quản lý thư viện</h3>
+            <p>Đề tài môn Phân tích thiết kế hệ thống (nhóm 2, 6 thành viên) cho thư viện có ba vai trò: độc giả, thủ thư, quản trị viên. Gồm đăng ký và cấp thẻ, mượn – trả – gia hạn, xử lý mất sách, mở khóa thẻ có phê duyệt hai cấp và báo cáo tồn kho. Mình tham gia nhóm phân tích thiết kế, phụ trách phần sơ đồ ERD.</p>
+            <ul class="tags"><li>Phân tích thiết kế hệ thống</li><li>UML</li><li>ERD</li><li>Supabase / PostgreSQL</li></ul>
+            <div class="links">
+              <a class="pill" href="https://library-management-system-six-kohl.vercel.app" target="_blank" rel="noopener noreferrer">Xem demo</a>
+              <a class="pill outline" href="https://github.com/hoanhh4977/library-management-system" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="shot ph"><span>02</span></div>
+          <h3>Student Attendance Management System</h3>
+          <p>Hệ thống quản lý điểm danh sinh viên, dự án nhóm 4 môn Công nghệ phần mềm. Có đóng gói Docker, kiểm thử bằng pytest và tài liệu đặc tả yêu cầu.</p>
+          <ul class="tags"><li>Python</li><li>Docker</li><li>pytest</li></ul>
+          <div class="links"><a class="pill outline" href="https://github.com/hoanhh4977/CNPM_Group04" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </article>
+
+        <article class="card">
+          <div class="shot ph"><span>03</span></div>
+          <h3>ATTT Steganography</h3>
+          <p>Bài thực hành môn An toàn thông tin về steganography (giấu tin trong dữ liệu), viết bằng Python.</p>
+          <ul class="tags"><li>Python</li><li>An toàn thông tin</li></ul>
+          <div class="links"><a class="pill outline" href="https://github.com/hoanhh4977/ATTT_Steganography" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </article>
+
+        <article class="card">
+          <div class="shot ph"><span>04</span></div>
+          <h3>SemEval 2027</h3>
+          <p>Các notebook thử nghiệm cho SemEval 2027, hoạt động của mình khi tìm hiểu NLP.</p>
+          <ul class="tags"><li>NLP</li><li>Notebook</li></ul>
+          <div class="links"><a class="pill outline" href="https://github.com/hoanhh4977/SemEval2027" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </article>
+
+        <article class="card">
+          <div class="shot ph"><span>05</span></div>
+          <h3>UTH Python – Cuối kỳ</h3>
+          <p>Bài cuối kỳ môn Python gồm xử lý dữ liệu, tạo cơ sở dữ liệu và bài toán hồi quy tuyến tính, kèm hướng dẫn cài đặt và chạy.</p>
+          <ul class="tags"><li>Python</li><li>Hồi quy tuyến tính</li></ul>
+          <div class="links"><a class="pill outline" href="https://github.com/hoanhh4977/UTH_Python_CK" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </article>
+
+        <article class="card">
+          <div class="shot ph"><span>06</span></div>
+          <h3>Python Programming</h3>
+          <p>Tập hợp bài tập và dữ liệu mẫu theo từng buổi của môn Ngôn ngữ lập trình Python.</p>
+          <ul class="tags"><li>Python</li><li>Bài tập môn học</li></ul>
+          <div class="links"><a class="pill outline" href="https://github.com/hoanhh4977/Python_Programming" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LIÊN HỆ -->
+    <section class="contact" id="contact">
+      <h2>Liên hệ.<svg class="star burst"><use href="#star"/></svg></h2>
+      <p class="contact-lead">Liên hệ với mình qua email, Zalo, Facebook hoặc xem mã nguồn trên GitHub.</p>
+      <dl class="contact-info">
+        <div><dt>Email</dt><dd><a href="mailto:hoanhhbmt49@gmail.com">hoanhhbmt49@gmail.com</a></dd></div>
+        <div><dt>Zalo</dt><dd><a href="https://zalo.me/0988449850" target="_blank" rel="noopener noreferrer">0988 449 850</a></dd></div>
+      </dl>
+      <div class="actions">
+        <a class="pill light" href="mailto:hoanhhbmt49@gmail.com">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          Gmail
+        </a>
+        <a class="pill light" href="https://zalo.me/0988449850" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L3 21l2-5.2A8 8 0 1 1 21 12z"/></svg>
+          Zalo
+        </a>
+        <a class="pill light" href="https://www.facebook.com/share/1CCCfhLKJk/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.88v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          Facebook
+        </a>
+        <a class="pill light" href="https://github.com/hoanhh4977" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Nguyễn Hoàng Anh</footer>
+</body>
+</html>
