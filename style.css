@@ -121,25 +121,52 @@ h2 {
 .pills li.filled .star { color: #fff; }
 .note { color: var(--muted); font-size: 0.92rem; }
 
-/* DỰ ÁN */
+/* DỰ ÁN: thanh tab cuộn ngang + khung chi tiết */
 .projects h2 .burst { font-size: 0.5em; margin-left: 12px; vertical-align: 0.4em; }
-.grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 32px; margin-top: 44px; }
-.card { grid-column: span 2; }
-.card:nth-last-child(-n+2) { grid-column: span 3; }
-.card { background: #fff; padding: 20px; box-shadow: 0 8px 24px rgba(20, 40, 90, 0.1); display: flex; flex-direction: column; }
-.card h3 { font-family: var(--head); font-weight: 800; color: var(--blue); font-size: 1.3rem; line-height: 1.2; margin: 18px 0 10px; }
-.card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 12px; }
+.tabbar { display: flex; align-items: center; gap: 10px; margin: 36px 0 24px; }
+.tabs { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; flex: 1; padding: 4px 2px; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: none; scroll-snap-align: center; cursor: pointer;
+  padding: 10px 22px; border-radius: 999px; border: 1.5px solid var(--blue);
+  background: #fff; color: var(--blue); font: 500 0.92rem var(--body); white-space: nowrap;
+  transition: background 0.25s, color 0.25s;
+}
+.tab span { font-family: var(--serif); font-style: italic; margin-right: 4px; }
+.tab:hover { background: #e8effa; }
+.tab[aria-selected="true"] { background: var(--blue); color: #fff; }
+.arrow {
+  flex: none; width: 42px; height: 42px; border-radius: 50%; cursor: pointer;
+  border: 1.5px solid var(--blue); background: #fff; color: var(--blue); font-size: 1.4rem; line-height: 1;
+  transition: background 0.25s, color 0.25s;
+}
+.arrow:hover { background: var(--blue); color: #fff; }
+
+.panel {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center;
+  background: #fff; padding: 32px; box-shadow: 0 8px 24px rgba(20, 40, 90, 0.1);
+  animation: fade 0.35s ease;
+}
+.panel[hidden] { display: none; }
+@keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.kind { color: var(--blue); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.04em; }
+.panel h3 { font-family: var(--head); font-weight: 800; color: var(--blue); font-size: 1.8rem; line-height: 1.15; margin: 8px 0 14px; }
+.panel h4 { font-family: var(--head); font-size: 0.95rem; margin: 18px 0 8px; }
+.info > p { color: var(--muted); }
+.points { margin: 0 0 8px 1.1rem; color: var(--muted); font-size: 0.95rem; }
+.points li { margin-bottom: 6px; padding-left: 2px; }
+.points li::marker { color: var(--blue); }
 .shot { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; border: 1px solid #e4e7ee; }
+.shot.sq { aspect-ratio: 1; max-height: 460px; object-fit: contain; object-position: center; background: #fdd; }
+.shot.ref { object-fit: contain; object-position: center; background: #eef2f8; padding: 12px; }
+.shot.logo-img { object-position: center; background: #1b1b1b; border: 0; }
+.figure figcaption { margin-top: 8px; font-size: 0.75rem; color: var(--muted); font-style: italic; text-align: center; }
 .shot.ph { display: grid; place-items: center; background: linear-gradient(135deg, #aecdf3, #e6e6fb); border: 0; }
-.shot.ph span { font-family: var(--serif); font-size: 5.5rem; color: var(--blue); }
-.card.featured { grid-column: 1 / -1 !important; flex-direction: row; gap: 32px; align-items: center; padding: 28px; }
-.card.featured .shot { width: 52%; flex: none; }
-.card.featured h3 { margin-top: 4px; font-size: 1.7rem; }
-.num { font-family: var(--serif); font-style: italic; font-size: 1.6rem; color: var(--blue); line-height: 1; }
-.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 4px 0 16px; }
+.shot.ph span { font-family: var(--serif); font-size: 6rem; color: var(--blue); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 14px 0 20px; }
 .tags li { border: 1.5px solid var(--blue); color: var(--blue); border-radius: 999px; padding: 2px 12px; font-size: 0.78rem; font-weight: 500; }
-.links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto; }
-.card .pill { padding: 8px 22px; font-size: 0.85rem; }
+.links { display: flex; gap: 12px; flex-wrap: wrap; }
+.panel .pill { padding: 9px 24px; font-size: 0.88rem; }
 
 /* LIÊN HỆ: khối xanh toàn chiều ngang */
 .contact {
@@ -167,11 +194,15 @@ footer { text-align: center; padding: 22px 16px 28px; color: var(--blue); font-s
   .hero, .skills, .two-col { grid-template-columns: 1fr; gap: 32px; }
   .hero { padding-top: 32px; min-height: 0; }
   .hero-art { min-height: 440px; }
-  .grid { grid-template-columns: 1fr; }
-  .card, .card:nth-last-child(-n+2) { grid-column: 1 / -1; }
   .skills-art { margin: 0 calc(50% - 50vw); min-height: 360px; }
-  .card.featured { flex-direction: column; padding: 20px; }
-  .card.featured .shot { width: 100%; }
+  .panel { grid-template-columns: 1fr; gap: 24px; padding: 20px; }
+  .arrow { display: none; }
   .pills { grid-template-columns: 1fr 1fr; }
   .banner { height: 180px; }
 }
+
+/* nút Chi tiết + khung vai trò */
+.pill.more { cursor: pointer; font-family: var(--body); }
+.detail { margin-top: 22px; padding: 18px 22px; background: #eef4fc; border-left: 3px solid var(--blue); animation: fade 0.3s ease; }
+.detail[hidden] { display: none; }
+.detail h4 { margin-top: 0; color: var(--blue); }

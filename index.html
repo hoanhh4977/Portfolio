@@ -88,61 +88,202 @@
     <!-- DỰ ÁN -->
     <section class="projects" id="projects">
       <h2>Dự án.<svg class="star burst"><use href="#star"/></svg><span class="rule"></span></h2>
-      <div class="grid">
-        <article class="card featured">
-          <img class="shot" src="images/library-dashboard.jpg" alt="Giao diện dashboard quản trị viên của Bookary" loading="lazy">
-          <div class="info">
-            <p class="num">01</p>
-            <h3>Bookary – Hệ thống quản lý thư viện</h3>
-            <p>Đề tài môn Phân tích thiết kế hệ thống (nhóm 2, 6 thành viên) cho thư viện có ba vai trò: độc giả, thủ thư, quản trị viên. Gồm đăng ký và cấp thẻ, mượn – trả – gia hạn, xử lý mất sách, mở khóa thẻ có phê duyệt hai cấp và báo cáo tồn kho. Mình tham gia nhóm phân tích thiết kế, phụ trách phần sơ đồ ERD.</p>
-            <ul class="tags"><li>Phân tích thiết kế hệ thống</li><li>UML</li><li>ERD</li><li>Supabase / PostgreSQL</li></ul>
-            <div class="links">
-              <a class="pill" href="https://library-management-system-six-kohl.vercel.app" target="_blank" rel="noopener noreferrer">Xem demo</a>
-              <a class="pill outline" href="https://github.com/hoanhh4977/library-management-system" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </div>
-          </div>
-        </article>
 
-        <article class="card">
-          <div class="shot ph"><span>02</span></div>
-          <h3>Student Attendance Management System</h3>
-          <p>Hệ thống quản lý điểm danh sinh viên, dự án nhóm 4 môn Công nghệ phần mềm. Có đóng gói Docker, kiểm thử bằng pytest và tài liệu đặc tả yêu cầu.</p>
-          <ul class="tags"><li>Python</li><li>Docker</li><li>pytest</li></ul>
-          <div class="links"><a class="pill outline" href="https://github.com/hoanhh4977/CNPM_Group04" target="_blank" rel="noopener noreferrer">GitHub</a></div>
-        </article>
-
-        <article class="card">
-          <div class="shot ph"><span>03</span></div>
-          <h3>ATTT Steganography</h3>
-          <p>Bài thực hành môn An toàn thông tin về steganography (giấu tin trong dữ liệu), viết bằng Python.</p>
-          <ul class="tags"><li>Python</li><li>An toàn thông tin</li></ul>
-          <div class="links"><a class="pill outline" href="https://github.com/hoanhh4977/ATTT_Steganography" target="_blank" rel="noopener noreferrer">GitHub</a></div>
-        </article>
-
-        <article class="card">
-          <div class="shot ph"><span>04</span></div>
-          <h3>SemEval 2027</h3>
-          <p>Các notebook thử nghiệm cho SemEval 2027, hoạt động của mình khi tìm hiểu NLP.</p>
-          <ul class="tags"><li>NLP</li><li>Notebook</li></ul>
-          <div class="links"><a class="pill outline" href="https://github.com/hoanhh4977/SemEval2027" target="_blank" rel="noopener noreferrer">GitHub</a></div>
-        </article>
-
-        <article class="card">
-          <div class="shot ph"><span>05</span></div>
-          <h3>UTH Python – Cuối kỳ</h3>
-          <p>Bài cuối kỳ môn Python gồm xử lý dữ liệu, tạo cơ sở dữ liệu và bài toán hồi quy tuyến tính, kèm hướng dẫn cài đặt và chạy.</p>
-          <ul class="tags"><li>Python</li><li>Hồi quy tuyến tính</li></ul>
-          <div class="links"><a class="pill outline" href="https://github.com/hoanhh4977/UTH_Python_CK" target="_blank" rel="noopener noreferrer">GitHub</a></div>
-        </article>
-
-        <article class="card">
-          <div class="shot ph"><span>06</span></div>
-          <h3>Python Programming</h3>
-          <p>Tập hợp bài tập và dữ liệu mẫu theo từng buổi của môn Ngôn ngữ lập trình Python.</p>
-          <ul class="tags"><li>Python</li><li>Bài tập môn học</li></ul>
-          <div class="links"><a class="pill outline" href="https://github.com/hoanhh4977/Python_Programming" target="_blank" rel="noopener noreferrer">GitHub</a></div>
-        </article>
+      <div class="tabbar">
+        <button class="arrow" id="tab-prev" type="button" aria-label="Dự án trước">‹</button>
+        <div class="tabs" role="tablist" aria-label="Danh sách dự án">
+          <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true"><span>01</span> Bookary</button>
+          <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1"><span>02</span> Điểm danh sinh viên</button>
+          <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1"><span>03</span> Steganography</button>
+          <button class="tab" role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1"><span>04</span> SemEval 2027</button>
+          <button class="tab" role="tab" id="t5" aria-controls="p5" aria-selected="false" tabindex="-1"><span>05</span> UTH Python</button>
+          <button class="tab" role="tab" id="t6" aria-controls="p6" aria-selected="false" tabindex="-1"><span>06</span> Python Programming</button>
+        </div>
+        <button class="arrow" id="tab-next" type="button" aria-label="Dự án sau">›</button>
       </div>
+
+      <!-- 01 -->
+      <article class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+        <img class="shot" src="images/library-dashboard.jpg" alt="Giao diện dashboard quản trị viên của Bookary" loading="lazy">
+        <div class="info">
+          <p class="kind">Môn Phân tích thiết kế hệ thống · Nhóm 2 (6 thành viên)</p>
+          <h3>Bookary – Hệ thống quản lý thư viện</h3>
+          <p>Hệ thống cho thư viện có ba vai trò: độc giả, thủ thư, quản trị viên. Gồm đăng ký và cấp thẻ, mượn – trả – gia hạn, xử lý mất sách, mở khóa thẻ có phê duyệt hai cấp và báo cáo tồn kho.</p>
+          <h4>Điểm nổi bật</h4>
+          <ul class="points">
+            <li>Phần phân tích thiết kế đầy đủ: Context Diagram, Diagram 0, từ điển dữ liệu, ERD và 4 sơ đồ UML.</li>
+            <li>Bản cài đặt gồm backend Python (có migration cơ sở dữ liệu và kiểm thử) và frontend TypeScript dùng Vite, Tailwind CSS, kiểm thử bằng Playwright.</li>
+            <li>Đã triển khai bản demo trực tuyến trên Vercel.</li>
+          </ul>
+          <ul class="tags"><li>Python</li><li>TypeScript</li><li>Tailwind CSS</li><li>PostgreSQL / Supabase</li><li>UML</li><li>ERD</li></ul>
+          <div class="links">
+            <button class="pill more" type="button" aria-expanded="false" aria-controls="d1">Chi tiết ▾</button>
+            <a class="pill" href="https://library-management-system-six-kohl.vercel.app" target="_blank" rel="noopener noreferrer">Xem demo</a>
+            <a class="pill outline" href="https://github.com/hoanhh4977/library-management-system" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+          <div class="detail" id="d1" hidden>
+            <h4>Mình đã làm</h4>
+            <ul class="points">
+              <li>Vẽ sơ đồ thực thể kết hợp (ERD) cho hệ thống ở giai đoạn phân tích thiết kế.</li>
+              <li>Lập trình toàn bộ phần web của hệ thống: backend (Python), frontend (TypeScript, Vite, Tailwind CSS), kiểm thử và đưa bản demo lên Vercel.</li>
+              <li>Phát triển với sự hỗ trợ của công cụ AI (Claude Code và Spec Kit): chuyển tài liệu phân tích thiết kế của nhóm thành đặc tả, rồi hiện thực hóa thành ứng dụng chạy được.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+        <figure class="figure">
+          <img class="shot sq" src="images/attendance.jpg" alt="Mẫu giao diện đăng nhập hệ thống điểm danh sinh viên" loading="lazy">
+          <figcaption>Ảnh minh họa giao diện (mẫu thiết kế tham khảo)</figcaption>
+        </figure>
+        <div class="info">
+          <p class="kind">Môn Công nghệ phần mềm · Nhóm 4</p>
+          <h3>Student Attendance Management System</h3>
+          <p>Hệ thống quản lý điểm danh sinh viên, làm việc nhóm theo quy trình phần mềm: có tài liệu đặc tả yêu cầu và thiết kế, tài liệu kiểm thử.</p>
+          <h4>Điểm nổi bật</h4>
+          <ul class="points">
+            <li>Mã nguồn chia lớp rõ ràng: services, storage, ui và utils.</li>
+            <li>Bộ kiểm thử pytest gồm kiểm thử đơn vị, repository và tích hợp.</li>
+            <li>Đóng gói bằng Docker và docker-compose.</li>
+          </ul>
+          <ul class="tags"><li>Python</li><li>pytest</li><li>Docker</li></ul>
+          <div class="links">
+            <button class="pill more" type="button" aria-expanded="false" aria-controls="d2">Chi tiết ▾</button>
+            <a class="pill outline" href="https://github.com/hoanhh4977/CNPM_Group04" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+          <div class="detail" id="d2" hidden>
+            <h4>Mình đã làm</h4>
+            <ul class="points">
+              <li>Làm trưởng nhóm của dự án.</li>
+              <li>Sửa lỗi (bug) giúp các thành viên trong nhóm.</li>
+              <li>Lập trình các chức năng cơ bản của hệ thống.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+        <figure class="figure">
+          <img class="shot ref" src="images/steganography.jpg" alt="Giao diện minh họa chức năng giấu tin và trích xuất tin trong ảnh" loading="lazy">
+          <figcaption>Ảnh minh họa chức năng giấu tin (ứng dụng mẫu tham khảo)</figcaption>
+        </figure>
+        <div class="info">
+          <p class="kind">Môn An toàn thông tin · Cá nhân</p>
+          <h3>ATTT Steganography</h3>
+          <p>Công cụ web giấu tin trong ảnh và âm thanh, kèm chức năng phát hiện ảnh có chứa tin giấu. Thuật toán LSB được tự cài đặt, thông điệp được mã hóa trước khi giấu.</p>
+          <h4>Điểm nổi bật</h4>
+          <ul class="points">
+            <li>Ba chức năng: giấu tin (Embed), lấy tin (Extract) và phân tích phát hiện tin giấu (Analyze).</li>
+            <li>Bảo mật thông điệp bằng AES-128 CBC, khóa sinh từ mật khẩu.</li>
+            <li>Phát hiện tin giấu bằng RS Analysis, SPA và Chi-squared.</li>
+          </ul>
+          <ul class="tags"><li>Python</li><li>FastAPI</li><li>NumPy</li><li>AES / PBKDF2</li><li>Steganalysis</li><li>JavaScript</li></ul>
+          <div class="links">
+            <button class="pill more" type="button" aria-expanded="false" aria-controls="d3">Chi tiết ▾</button>
+            <a class="pill outline" href="https://github.com/hoanhh4977/ATTT_Steganography" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+          <div class="detail" id="d3" hidden>
+            <h4>Mình đã làm</h4>
+            <ul class="points">
+              <li>Dự án cá nhân: tự thiết kế và lập trình toàn bộ.</li>
+              <li>Tự cài đặt thuật toán giấu tin LSB bằng numpy: có chế độ nhúng tuần tự và nhúng phân tán theo khóa ngẫu nhiên.</li>
+              <li>Mã hóa thông điệp bằng AES-128 chế độ CBC, khóa sinh từ mật khẩu qua PBKDF2-HMAC-SHA256.</li>
+              <li>Đo chất lượng ảnh sau khi giấu tin bằng PSNR và tính dung lượng tối đa có thể giấu.</li>
+              <li>Xây dựng phần phát hiện tin giấu (steganalysis) bằng ba kỹ thuật: RS Analysis, Sample Pair Analysis và kiểm định Chi-squared.</li>
+              <li>Mở rộng giấu tin sang âm thanh WAV, ngoài ảnh.</li>
+              <li>Dựng API bằng FastAPI, giao diện web bằng JavaScript thuần với 3 tab Embed, Extract, Analyze, và viết kiểm thử bằng pytest.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 -->
+      <article class="panel" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
+        <figure class="figure">
+          <img class="shot ref" src="images/semeval.jpg" alt="Trang chủ chính thức của SemEval-2027" loading="lazy">
+          <figcaption>Trang chủ SemEval-2027 (ảnh chụp từ trang chính thức của cuộc thi)</figcaption>
+        </figure>
+        <div class="info">
+          <p class="kind">Học NLP · Đang thực hiện</p>
+          <h3>SemEval 2027 – Task 8: StereoQueerEval</h3>
+          <p>SemEval-2027 là hội thảo quốc tế lần thứ 21 về Semantic Evaluation (đánh giá ngữ nghĩa), tổ chức cùng ACL 2027 tại Kyoto, Nhật Bản, ngày 17–22/8/2027. Mình đang làm Task 8 (StereoQueerEval): nhận diện định kiến và ngôn từ thù ghét nhắm vào cộng đồng LGBTQIA+ trong bình luận. Dự án đang trong quá trình thực hiện.</p>
+          <h4>Điểm nổi bật</h4>
+          <ul class="points">
+            <li>Ba bài toán con: (A) phát hiện định kiến, (B) phân loại ngôn từ thù ghét (không / ngầm / trực tiếp), (C) xác định đối tượng bị nhắm tới (nhiều nhãn).</li>
+            <li>So sánh bốn hướng tiếp cận: TF-IDF + SVM, embedding + SVM, tinh chỉnh BERT và tinh chỉnh T5.</li>
+            <li>Kết quả ban đầu của baseline TF-IDF + SVM trên tiếng Anh: độ chính xác khoảng 0,70 ở bài toán A và 0,57 ở bài toán B.</li>
+          </ul>
+          <ul class="tags"><li>NLP</li><li>Phân loại văn bản</li><li>TF-IDF · SVM</li><li>BERT</li><li>T5</li><li>Hugging Face</li></ul>
+          <div class="links">
+            <button class="pill more" type="button" aria-expanded="false" aria-controls="d4">Chi tiết ▾</button>
+            <a class="pill outline" href="https://github.com/hoanhh4977/SemEval2027" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+          <div class="detail" id="d4" hidden>
+            <h4>Mình đã làm</h4>
+            <ul class="points">
+              <li>Đang làm Task 8 của SemEval 2027, dự án chưa hoàn thành.</li>
+              <li>Viết các notebook thử nghiệm cho cả ba bài toán con A, B, C trên dữ liệu tiếng Anh.</li>
+              <li>Dùng chung một hàm huấn luyện và đánh giá cho cả ba bài toán, thay vì viết lại ba lần.</li>
+              <li>Thử TF-IDF + SVM và embedding (Bag-of-Words, fastText) + SVM làm mốc so sánh.</li>
+              <li>Tinh chỉnh BERT với đầu phân loại, và tinh chỉnh T5 theo hướng coi bài toán là sinh văn bản.</li>
+              <li>Chia tập huấn luyện và kiểm tra một lần, dùng lại cho mọi phương pháp để so sánh công bằng.</li>
+              <li>Bước tiếp theo: mở rộng sang các ngôn ngữ khác của task và chạy các mô hình Transformer.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 -->
+      <article class="panel" role="tabpanel" id="p5" aria-labelledby="t5" hidden>
+        <img class="shot logo-img" src="images/python.jpg" alt="Logo Python" loading="lazy">
+        <div class="info">
+          <p class="kind">Bài cuối kỳ môn Python · Làm việc nhóm</p>
+          <h3>UTH Python – Cuối kỳ</h3>
+          <p>Bài cuối kỳ gồm xử lý dữ liệu, tạo cơ sở dữ liệu và bài toán hồi quy tuyến tính, có hướng dẫn cài đặt và chạy.</p>
+          <h4>Điểm nổi bật</h4>
+          <ul class="points">
+            <li>Làm việc với dữ liệu giá nhà và dữ liệu hồi quy tuyến tính, lưu vào cơ sở dữ liệu.</li>
+            <li>Mã nguồn chia module: app, gpt, prompt, utils.</li>
+          </ul>
+          <ul class="tags"><li>Python</li><li>Hồi quy tuyến tính</li><li>Jupyter Notebook</li></ul>
+          <div class="links">
+            <button class="pill more" type="button" aria-expanded="false" aria-controls="d5">Chi tiết ▾</button>
+            <a class="pill outline" href="https://github.com/hoanhh4977/UTH_Python_CK" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+          <div class="detail" id="d5" hidden>
+            <h4>Mình đã làm</h4>
+            <ul class="points">
+              <li>Dùng Python để làm bài cuối kỳ gồm xử lý dữ liệu, tạo cơ sở dữ liệu và bài toán hồi quy tuyến tính.</li>
+              <li>Đây là bài giúp mình củng cố kiến thức lập trình Python đã học trong môn.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06 -->
+      <article class="panel" role="tabpanel" id="p6" aria-labelledby="t6" hidden>
+        <img class="shot" src="images/python-code.jpg" alt="Logo Python trên nền mã nguồn Python" loading="lazy" style="object-position:center">
+        <div class="info">
+          <p class="kind">Môn Ngôn ngữ lập trình Python · Cá nhân</p>
+          <h3>Python Programming</h3>
+          <p>Tập hợp bài tập theo từng buổi học Python, kèm dữ liệu mẫu dạng CSV và JSON.</p>
+          <ul class="tags"><li>Python</li><li>Jupyter Notebook</li><li>CSV / JSON</li></ul>
+          <div class="links">
+            <button class="pill more" type="button" aria-expanded="false" aria-controls="d6">Chi tiết ▾</button>
+            <a class="pill outline" href="https://github.com/hoanhh4977/Python_Programming" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+          <div class="detail" id="d6" hidden>
+            <h4>Mình đã làm</h4>
+            <ul class="points">
+              <li>Học lập trình Python và làm bài tập theo từng buổi của môn Ngôn ngữ lập trình Python.</li>
+              <li>Thực hành làm việc với dữ liệu mẫu dạng CSV và JSON.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
     </section>
 
     <!-- LIÊN HỆ -->
@@ -175,5 +316,53 @@
   </main>
 
   <footer>© 2026 Nguyễn Hoàng Anh</footer>
+  <script>
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+      var bar = document.querySelector('.tabs');
+      var cur = 0;
+      function show(i, focus) {
+        cur = (i + tabs.length) % tabs.length;
+        tabs.forEach(function (t, k) {
+          var on = k === cur;
+          t.setAttribute('aria-selected', on);
+          t.tabIndex = on ? 0 : -1;
+          panels[k].hidden = !on;
+        });
+        tabs[cur].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        if (focus) tabs[cur].focus();
+      }
+      tabs.forEach(function (t, k) {
+        t.addEventListener('click', function () { show(k); });
+        t.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1, true); }
+          if (e.key === 'ArrowLeft') { e.preventDefault(); show(cur - 1, true); }
+        });
+      });
+      document.getElementById('tab-prev').addEventListener('click', function () { show(cur - 1); });
+      document.getElementById('tab-next').addEventListener('click', function () { show(cur + 1); });
+      /* nút Chi tiết */
+      document.querySelectorAll('.more').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var d = document.getElementById(b.getAttribute('aria-controls'));
+          var open = b.getAttribute('aria-expanded') === 'true';
+          b.setAttribute('aria-expanded', !open);
+          b.textContent = open ? 'Chi tiết ▾' : 'Thu gọn ▴';
+          d.hidden = open;
+        });
+      });
+      /* vuốt trái/phải trên khung chi tiết */
+      var x0 = null;
+      panels.forEach(function (p) {
+        p.addEventListener('touchstart', function (e) { x0 = e.changedTouches[0].clientX; }, { passive: true });
+        p.addEventListener('touchend', function (e) {
+          if (x0 === null) return;
+          var dx = e.changedTouches[0].clientX - x0; x0 = null;
+          if (Math.abs(dx) > 60) show(cur + (dx < 0 ? 1 : -1));
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
