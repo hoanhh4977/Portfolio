@@ -6,50 +6,84 @@
   <title>Nguyễn Hoàng Anh – Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,100..900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="hero.css">
+  <link rel="stylesheet" href="world.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="cinema.css">
+  <script>
+    /* áp chế độ sáng/tối trước khi trang vẽ để không bị nháy */
+    try {
+      var t = localStorage.getItem('portfolio-theme');
+      if (!t) t = 'dark';
+      if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    } catch (e) {}
+  </script>
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="star" viewBox="0 0 24 24"><path d="M12 0C12.8 6.6 17.4 11.2 24 12 17.4 12.8 12.8 17.4 12 24 11.2 17.4 6.6 12.8 0 12 6.6 11.2 11.2 6.6 12 0z" fill="currentColor"/></symbol>
   </svg>
 
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="water" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.004 0.03" numOctaves="2" seed="4" result="noise">
+        <animate attributeName="baseFrequency" dur="14s" values="0.004 0.03;0.006 0.042;0.004 0.03" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="38" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
   <header class="nav">
     <a class="logo" href="#top"><svg class="star"><use href="#star"/></svg> Hoanhh</a>
     <nav>
+      <a class="active" href="#top">Trang chủ</a>
       <a href="#about">Giới thiệu</a>
-      <a href="#skills">Kỹ năng</a>
+      <a href="#me">Về mình</a>
+      <a href="#journey">Hành trình</a>
       <a href="#projects">Dự án</a>
-      <a href="#contact">Liên hệ</a>
+      <a href="#skills">Kỹ năng</a>
     </nav>
+    <a class="nav-cta liquid-glass" href="#contact">Liên hệ</a>
   </header>
 
   <main id="top">
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-text">
-        <p class="kicker"><em>Nguyễn Hoàng Anh</em> <svg class="star"><use href="#star"/></svg> Sinh viên CNTT</p>
-        <h1>Port<em>folio</em><svg class="star burst"><use href="#star"/></svg></h1>
-        <p class="tagline">Từ dòng code đến sản phẩm hữu ích.</p>
-        <div class="hero-foot">
-          <a class="pill" href="mailto:hoanhhbmt49@gmail.com">hoanhhbmt49@gmail.com</a>
-          <span class="years">K24 · 2026</span>
-        </div>
+    <section class="hero no-video">
+      <!-- Video nền: đặt file của bạn tại videos/hero.mp4. Chưa có file thì trang dùng nền gradient. -->
+      <div class="hero-bg" data-static aria-hidden="true">
+        <video autoplay loop muted playsinline preload="auto" poster="images/hero-poster.jpg">
+          <source src="videos/hero.webm" type="video/webm">
+          <source src="videos/hero.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="hero-art">
-        <div class="polaroids">
-          <img class="pol p1" src="images/avatar.jpg" alt="Ảnh của Nguyễn Hoàng Anh">
-          <img class="pol p2" src="images/avatar.jpg" alt="">
+      <div class="hero-fade" data-static aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="tint"></span></div>
+      <div class="hero-content" data-static>
+        <h1 class="hero-title animate-fade-rise">Hoàng <em>Anh</em></h1>
+        <div class="hero-bottom">
+          <p class="hero-tag animate-fade-rise-delay">Từ dòng code đến sản phẩm hữu ích.
+            <span>Mình là Nguyễn Hoàng Anh (Hoanhh), sinh viên Công nghệ thông tin K24 tại Đại học Giao thông vận tải TP.HCM. Mình xây dựng web, đang học NLP và Transformer, và làm content, dựng video.</span>
+          </p>
+          <a class="hero-cta liquid-glass animate-fade-rise-delay-2" href="#projects">Xem dự án</a>
         </div>
-        <div class="glass" aria-hidden="true"></div>
       </div>
     </section>
 
     <!-- GIỚI THIỆU -->
     <section class="about" id="about">
-      <img class="banner" src="images/avatar.jpg" alt="Ảnh bìa giới thiệu" loading="lazy">
+      <div class="bridge" data-static aria-hidden="true">
+        <video class="bridge-video" autoplay loop muted playsinline preload="metadata" poster="images/hero-poster.jpg">
+          <source src="videos/hero.webm" type="video/webm">
+          <source src="videos/hero.mp4" type="video/mp4">
+        </video>
+        <span class="bridge-blur"></span>
+        <span class="bridge-ripple"></span>
+        <span class="bridge-dim"></span>
+      </div>
+      <img class="banner" src="images/about-photo.jpg" alt="Ảnh mình mặc áo dài đỏ, tạo hình trái tim bằng hai tay" loading="lazy">
       <div class="two-col">
-        <h2>Giới thiệu.<span class="rule"></span></h2>
+        <h2 data-eyebrow="Con người">Giới thiệu.<span class="rule"></span></h2>
         <div class="text">
           <p class="lead">Sinh viên Công nghệ thông tin đam mê xây dựng web và tìm hiểu xử lý ngôn ngữ tự nhiên (NLP).</p>
           <p>Mình có nền tảng về lập trình hướng đối tượng (OOP) với Java và Python, làm giao diện bằng HTML và CSS, và xây dựng API với FastAPI. Hiện mình đang học NLP và tìm hiểu kiến trúc Transformer, nền tảng của các mô hình ngôn ngữ hiện đại.</p>
@@ -64,30 +98,120 @@
       </div>
     </section>
 
-    <!-- KỸ NĂNG -->
-    <section class="skills" id="skills">
-      <div class="skills-art">
-        <img class="pol s2" src="images/library-dashboard.jpg" alt="Giao diện Bookary" loading="lazy">
+    <!-- VỀ MÌNH -->
+    <section class="me" id="me">
+      <div class="me-bg" data-static aria-hidden="true"><div class="me-bg-fill"></div><div class="me-bg-img"></div></div>
+      <h2 data-eyebrow="Ngoài code">Về mình.<svg class="star burst"><use href="#star"/></svg><span class="rule"></span></h2>
+      <p class="me-lead">Ngoài code, mình thích hát, thích bơi và thỉnh thoảng làm bánh. Đây là vài điều về mình.</p>
+
+      <p class="mini">Ba từ mình tự mô tả</p>
+      <ul class="pills three">
+        <li class="filled">Ngơ <svg class="star"><use href="#star"/></svg></li>
+        <li>Nhạt <svg class="star"><use href="#star"/></svg></li>
+        <li class="filled">Vô tri <svg class="star"><use href="#star"/></svg></li>
+      </ul>
+
+      <div class="tiles">
+        <article class="tile">
+          <h3>Lúc rảnh</h3>
+          <p>Chơi game, làm toán, và thỉnh thoảng làm bánh.</p>
+        </article>
+        <article class="tile">
+          <h3>Ca hát</h3>
+          <p>Mình đam mê ca hát và rất thích đi nghe nhạc ở phòng trà.</p>
+        </article>
+        <article class="tile">
+          <h3>Bơi lội và biển</h3>
+          <p>Mình biết bơi ếch và bơi ngửa, nên rất thích đi du lịch những nơi có biển.</p>
+        </article>
+        <article class="tile">
+          <h3>Phim yêu thích</h3>
+          <p>Dạo gần đây mình hay xem “phim gấu”, thể loại phim hoạt hình hài hước kể chuyện trên YouTube, và xem rất nhiều.</p>
+        </article>
+        <article class="tile">
+          <h3>Thuyết trình</h3>
+          <p>Mình thuyết trình khá tự tin trước đám đông và rất thích điều đó, vì sau này mình muốn trở thành giảng viên.</p>
+        </article>
+        <article class="tile">
+          <h3>Quê và nơi ở</h3>
+          <p>Quê ở Đắk Lắk, hiện mình đang sống ở TP.HCM.</p>
+        </article>
       </div>
-      <div class="skills-body">
-        <h2>Kỹ năng.<span class="rule"></span></h2>
-        <ul class="pills">
-          <li class="filled">HTML <svg class="star"><use href="#star"/></svg></li>
-          <li>CSS <svg class="star"><use href="#star"/></svg></li>
-          <li>Java <svg class="star"><use href="#star"/></svg></li>
-          <li class="filled">Python <svg class="star"><use href="#star"/></svg></li>
-          <li class="filled">OOP <svg class="star"><use href="#star"/></svg></li>
-          <li>FastAPI <svg class="star"><use href="#star"/></svg></li>
-          <li>NLP <svg class="star"><use href="#star"/></svg></li>
-          <li class="filled">Transformer <svg class="star"><use href="#star"/></svg></li>
-        </ul>
-        <p class="note">Đang học NLP và kiến trúc Transformer; nền tảng lập trình hướng đối tượng với Java và Python.</p>
+
+      <div class="creator">
+        <div class="creator-text">
+          <h3 class="sub">Content creator và editor</h3>
+          <p>Ngoài code, mình làm content và dựng video. Mình tự làm content cho kênh TikTok <strong>Đóm Đi Đêm</strong> (@domdidemne), nội dung giải trí, có video đạt hơn 500 nghìn lượt xem. Mình dựng video bằng CapCut: ghép nhiều lớp hình, chữ và nhạc nền, chỉnh tốc độ từng đoạn.</p>
+          <p class="stat">Kênh Đóm Đi Đêm tính đến 01/11/2026: hơn 1.200 người theo dõi, hơn 83 nghìn lượt thích.</p>
+          <p class="mini">Kênh mình làm và edit video</p>
+          <div class="links">
+            <a class="pill" href="https://www.tiktok.com/@domdidemne" target="_blank" rel="noopener noreferrer">Đóm Đi Đêm</a>
+            <a class="pill outline" href="https://www.tiktok.com/@bot.2720" target="_blank" rel="noopener noreferrer">Bột Săm Soi</a>
+            <a class="pill outline" href="https://www.tiktok.com/@ngocngoongo" target="_blank" rel="noopener noreferrer">Ngọc Ngoo Ngơ</a>
+            <a class="pill outline" href="https://www.tiktok.com/@mittobot.2720" target="_blank" rel="noopener noreferrer">Mít Tờ Bột</a>
+          </div>
+        </div>
+        <figure class="channel channel-side">
+          <a href="https://www.tiktok.com/@domdidemne" target="_blank" rel="noopener noreferrer"><img class="pol" src="images/tiktok-channel.jpg" alt="Trang kênh TikTok Đóm Đi Đêm với các video nổi bật" loading="lazy"></a>
+          <figcaption>Kênh TikTok <strong>Đóm Đi Đêm</strong> (ảnh chụp ngày 01/11/2026). Các video ghim đạt 300,8K, 510K và 160,6K lượt xem. Bấm vào ảnh để xem kênh.</figcaption>
+        </figure>
       </div>
+
+      <div class="moments" aria-label="Một vài khoảnh khắc của mình">
+        <p class="mini">Một vài khoảnh khắc</p>
+        <div class="moments-track"><div class="moments-set"><img src="images/moment-1.jpg" alt="Ảnh mình mặc áo dài đỏ, tạo hình trái tim bằng hai tay" loading="lazy"><img src="images/moment-2.jpg" alt="Ảnh tự chụp của mình với nón lá" loading="lazy"><img src="images/moment-3.jpg" alt="Ảnh mình đội nón lá bên bờ sông, phía sau là cây cầu" loading="lazy"><img src="images/moment-4.jpg" alt="Ảnh mình đội nón lá trước một công trình cổ" loading="lazy"></div><div class="moments-set" aria-hidden="true"><img src="images/moment-1.jpg" alt="" loading="lazy"><img src="images/moment-2.jpg" alt="" loading="lazy"><img src="images/moment-3.jpg" alt="" loading="lazy"><img src="images/moment-4.jpg" alt="" loading="lazy"></div></div>
+      </div>
+
+      <h3 class="sub">Một số dự án dựng video của mình</h3>
+      <div class="gallery">
+        <figure>
+          <a href="images/capcut-nnn.jpg" target="_blank" rel="noopener noreferrer"><img class="pol" src="images/capcut-nnn.jpg" alt="Dự án dựng video NNN trong CapCut" loading="lazy"></a>
+          <figcaption>Dự án “NNN” — dựng nhiều lớp hình, phụ đề và nhạc nền</figcaption>
+        </figure>
+        <figure>
+          <a href="images/capcut-botsamsoi.jpg" target="_blank" rel="noopener noreferrer"><img class="pol" src="images/capcut-botsamsoi.jpg" alt="Dự án dựng video Bột sắm soi trong CapCut" loading="lazy"></a>
+          <figcaption>Dự án “Bột sắm soi” — chèn ảnh, hiệu ứng đặc biệt và dòng chữ chạy theo lời</figcaption>
+        </figure>
+        <figure>
+          <a href="images/capcut-mtb.jpg" target="_blank" rel="noopener noreferrer"><img class="pol" src="images/capcut-mtb.jpg" alt="Dự án dựng video MTB trong CapCut" loading="lazy"></a>
+          <figcaption>Dự án “MTB_” — ghép nhân vật hoạt hình, tư liệu phim và chỉnh tốc độ</figcaption>
+        </figure>
+      </div>
+
+      <div class="me-cols">
+        <div>
+          <h3 class="sub">Khi làm việc nhóm</h3>
+          <p>Trước đây mình thích làm một mình. Từ khi làm việc cùng các bạn trong nhóm, mình muốn làm chung nhiều hơn để học hỏi thêm.</p>
+          <p>Trong nhóm mình thường <strong>code, kiểm thử sản phẩm, vẽ ERD và thuyết trình</strong>.</p>
+          <p>Điều mình đang cải thiện: hay đến hạn mới nộp bài nhóm.</p>
+        </div>
+        <div>
+          <h3 class="sub">Điều mình coi trọng</h3>
+          <p>Hiểu được bản chất của vấn đề, và làm sản phẩm từ những thứ mình yêu thích.</p>
+          <p>Môn học yêu thích nhất của mình là <strong>Machine Learning</strong> và <strong>Deep Learning</strong>.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- HÀNH TRÌNH -->
+    <section class="journey-stage" id="journey">
+      <div class="journey-bg" data-static aria-hidden="true"><div class="journey-bg-img"></div></div>
+      <h2 data-eyebrow="Từ C++ đến NLP">Hành trình.<svg class="star burst"><use href="#star"/></svg><span class="rule"></span></h2>
+      <p class="me-lead">Từ dòng code đầu tiên đến những gì mình muốn làm tiếp theo.</p>
+      <ol class="journey">
+        <li data-phase="past"><b data-tag="Đã qua">Sau kỳ thi đại học</b> Mình tự học lập trình C++ trên CodeLearn.</li>
+        <li data-phase="past"><b data-tag="Đã qua">Chọn ngành</b> Mình chọn Công nghệ thông tin vì nghĩ ngành này liên quan đến toán học. Khi học các thuật toán và mô hình machine learning, mình thấy thật sự thích.</li>
+        <li data-phase="now"><b data-tag="Đang diễn ra">Hiện tại</b> Mình đang học NLP, Transformers và LLM trên Hugging Face, và đang tích cực tham gia nghiên cứu khoa học của trường cùng với cuộc thi SemEval 2027.</li>
+        <li data-phase="next"><b data-tag="Sắp tới">Cuối năm 3</b> Mình dự định xin đi thực tập.</li>
+        <li data-phase="next"><b data-tag="Sắp tới">Sau khi tốt nghiệp</b> Mình sẽ cố gắng học thạc sĩ ngành Khoa học máy tính tại UIT và xin làm ở phòng lab của trường, hoặc ứng tuyển vị trí AI Engineer ở công ty.</li>
+        <li data-phase="next"><b data-tag="Mong muốn">Xa hơn</b> Mình mong một ngày trở thành giảng viên, để truyền lại những gì mình đã học về máy học và xử lý ngôn ngữ.</li>
+      </ol>
     </section>
 
     <!-- DỰ ÁN -->
     <section class="projects" id="projects">
-      <h2>Dự án.<svg class="star burst"><use href="#star"/></svg><span class="rule"></span></h2>
+      <h2 data-eyebrow="Những gì mình đã làm">Dự án.<svg class="star burst"><use href="#star"/></svg><span class="rule"></span></h2>
 
       <div class="tabbar">
         <button class="arrow" id="tab-prev" type="button" aria-label="Dự án trước">‹</button>
@@ -207,7 +331,7 @@
           <figcaption>Trang chủ SemEval-2027 (ảnh chụp từ trang chính thức của cuộc thi)</figcaption>
         </figure>
         <div class="info">
-          <p class="kind">Học NLP · Đang thực hiện</p>
+          <p class="kind">Nghiên cứu khoa học của trường · Cuộc thi SemEval 2027 · Đang thực hiện</p>
           <h3>SemEval 2027 – Task 8: StereoQueerEval</h3>
           <p>SemEval-2027 là hội thảo quốc tế lần thứ 21 về Semantic Evaluation (đánh giá ngữ nghĩa), tổ chức cùng ACL 2027 tại Kyoto, Nhật Bản, ngày 17–22/8/2027. Mình đang làm Task 8 (StereoQueerEval): nhận diện định kiến và ngôn từ thù ghét nhắm vào cộng đồng LGBTQIA+ trong bình luận. Dự án đang trong quá trình thực hiện.</p>
           <h4>Điểm nổi bật</h4>
@@ -286,9 +410,33 @@
       </article>
     </section>
 
+    <!-- KỸ NĂNG -->
+    <section class="skills" id="skills">
+      <div class="skills-bg" data-static aria-hidden="true"><div class="skills-bg-img"></div></div>
+      <div class="skills-art">
+        <img class="pol s2" src="images/library-dashboard.jpg" alt="Giao diện Bookary" loading="lazy">
+      </div>
+      <div class="skills-body">
+        <h2 data-eyebrow="Công cụ">Kỹ năng.<span class="rule"></span></h2>
+        <ul class="pills">
+          <li class="filled">HTML <svg class="star"><use href="#star"/></svg></li>
+          <li>CSS <svg class="star"><use href="#star"/></svg></li>
+          <li>Java <svg class="star"><use href="#star"/></svg></li>
+          <li class="filled">Python <svg class="star"><use href="#star"/></svg></li>
+          <li class="filled">OOP <svg class="star"><use href="#star"/></svg></li>
+          <li>FastAPI <svg class="star"><use href="#star"/></svg></li>
+          <li>NLP <svg class="star"><use href="#star"/></svg></li>
+          <li class="filled">Transformer <svg class="star"><use href="#star"/></svg></li>
+          <li>Thuyết trình <svg class="star"><use href="#star"/></svg></li>
+          <li>Biên tập video <svg class="star"><use href="#star"/></svg></li>
+        </ul>
+        <p class="note">Đang học NLP, Transformers và LLM trên Hugging Face; nền tảng lập trình hướng đối tượng với Java và Python.</p>
+      </div>
+    </section>
+
     <!-- LIÊN HỆ -->
     <section class="contact" id="contact">
-      <h2>Liên hệ.<svg class="star burst"><use href="#star"/></svg></h2>
+      <h2 data-eyebrow="Trò chuyện">Liên hệ.<svg class="star burst"><use href="#star"/></svg></h2>
       <p class="contact-lead">Liên hệ với mình qua email, Zalo, Facebook hoặc xem mã nguồn trên GitHub.</p>
       <dl class="contact-info">
         <div><dt>Email</dt><dd><a href="mailto:hoanhhbmt49@gmail.com">hoanhhbmt49@gmail.com</a></dd></div>
@@ -310,6 +458,10 @@
         <a class="pill light" href="https://github.com/hoanhh4977" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
           GitHub
+        </a>
+        <a class="pill light" href="https://www.tiktok.com/@domdidemne" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M19.6 6.7a5.4 5.4 0 0 1-3.3-1.7 5.4 5.4 0 0 1-1.3-3H11v13.2a2.6 2.6 0 1 1-1.8-2.5V9.3a6.2 6.2 0 1 0 5.4 6.2V9.1a9 9 0 0 0 5 1.6z"/></svg>
+          TikTok
         </a>
       </div>
     </section>
@@ -364,5 +516,8 @@
       });
     })();
   </script>
+  <script src="hero.js"></script>
+  <script src="world.js"></script>
+  <script src="theme.js"></script>
 </body>
 </html>

@@ -1,0 +1,129 @@
+/* Hero điện ảnh: video nền toàn màn hình, tên rất lớn ở giữa, dòng giới thiệu ở đáy, phần đáy mờ dần.
+   Bố cục theo trang tuanang.net; kỹ thuật theo prompt Google AI Studio của bạn, viết lại bằng HTML/CSS/JS thuần. */
+:root {
+  --hero-bg: hsl(201 100% 13%);
+  --hero-muted: hsl(240 4% 66%);
+  --fade-to: #ecf1f9;                 /* màu đáy hero hòa vào phần tiếp theo (chế độ sáng) */
+}
+html[data-theme="dark"] { --fade-to: #0a0a0a; }
+
+/* hiệu ứng kính lỏng */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* chuyển động xuất hiện */
+@keyframes fade-rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-rise { animation: fade-rise 0.8s ease-out both; }
+.animate-fade-rise-delay { animation: fade-rise 0.8s ease-out 0.2s both; }
+.animate-fade-rise-delay-2 { animation: fade-rise 0.8s ease-out 0.4s both; }
+
+/* điều hướng: logo trái, liên kết ở giữa, nút liên hệ bên phải. Trong suốt trên hero, ẩn đi khi cuộn qua hero */
+.nav {
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
+  width: min(1240px, calc(100% - 24px)); max-width: none; margin: 0; padding: 14px 32px;
+  background: transparent; border: 1.5px solid transparent; color: #fff;
+  font-family: "Inter", var(--body); font-size: 0.875rem;
+  transition: background 0.3s, border-color 0.3s, opacity 0.3s, visibility 0.3s;
+}
+.nav .logo { justify-self: start; color: #fff; font-family: var(--head); font-weight: 400; font-size: 1.9rem; letter-spacing: -0.025em; line-height: 1; }
+.nav .logo .star { color: #fff; font-size: 1.1rem; }
+.nav nav { display: flex; align-items: center; justify-content: center; gap: 32px; }
+.nav nav a { color: var(--hero-muted); transition: color 0.2s; }
+.nav nav a:hover, .nav nav a.active { color: #fff; font-weight: 400; }
+.nav-cta { justify-self: end; padding: 10px 24px; border-radius: 999px; color: #fff !important; text-decoration: none; transition: transform 0.3s; }
+.nav-cta:hover { transform: scale(1.03); }
+
+.nav.solid { background: var(--surface); border-color: var(--blue); visibility: hidden; opacity: 0; pointer-events: none; }
+
+/* hero toàn màn hình */
+.hero {
+  position: relative; display: block; grid-template-columns: none; gap: 0; text-align: center;
+  min-height: 100vh; min-height: 100svh; margin: 0 calc(50% - 50vw); padding: 0;
+  background: var(--hero-bg); color: #fff; overflow: hidden;
+  /* đáy hero tan dần thành trong suốt: hòa vào nền thật phía sau, không có đường cắt */
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+}
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; z-index: 0; }
+/* chưa có video: nền gradient xanh navy trôi chậm */
+.hero.no-video .hero-bg {
+  background: linear-gradient(120deg, hsl(201 100% 13%), hsl(206 90% 21%), hsl(199 100% 10%), hsl(212 80% 19%));
+  background-size: 300% 300%; animation: drift 26s ease-in-out infinite;
+}
+@keyframes drift { 50% { background-position: 100% 50%; } }
+
+/* đáy hero mờ dần: nhiều lớp làm mờ tăng dần xuống dưới + lớp tối + hòa về màu nền phần tiếp theo */
+.hero-fade { position: absolute; left: 0; right: 0; bottom: 0; height: 52%; z-index: 1; pointer-events: none; }
+.hero-fade span { position: absolute; inset: 0; }
+.hero-fade .b1 { backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 40%); mask-image: linear-gradient(to bottom, transparent 0%, #000 40%); }
+.hero-fade .b2 { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); -webkit-mask-image: linear-gradient(to bottom, transparent 30%, #000 68%); mask-image: linear-gradient(to bottom, transparent 30%, #000 68%); }
+.hero-fade .b3 { backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); -webkit-mask-image: linear-gradient(to bottom, transparent 58%, #000 92%); mask-image: linear-gradient(to bottom, transparent 58%, #000 92%); }
+.hero-fade .tint { background: linear-gradient(to bottom, rgba(4, 14, 38, 0) 0%, rgba(4, 14, 38, 0.4) 46%, var(--fade-to) 92%); }
+
+/* nội dung: tên lớn ở giữa-trên, giới thiệu ở dưới */
+.hero-content {
+  position: relative; z-index: 2; box-sizing: border-box; width: 100%; min-height: 100vh; min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center; padding: 0 24px;
+}
+.hero .hero-title {
+  margin: clamp(90px, 17vh, 190px) 0 0; padding: 0 0.08em; max-width: 100%;
+  font-family: var(--head); font-weight: 400; line-height: 0.95; letter-spacing: -0.025em;
+  font-size: clamp(5rem, 13.3vw, 12rem);
+  background: linear-gradient(180deg, #fffaf0 0%, #f6dcae 46%, #bcd3ff 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 6px 34px rgba(0, 8, 30, 0.55));
+}
+.hero .hero-title em { font-style: italic; color: transparent; -webkit-text-fill-color: transparent; }
+.hero-bottom { margin-top: auto; padding-bottom: clamp(110px, 25vh, 250px); display: flex; flex-direction: column; align-items: center; }
+.hero-tag {
+  font-family: "Inter", var(--body); font-size: clamp(0.95rem, 1.5vw, 1.15rem); line-height: 1.6; color: #fff;
+  max-width: 46rem; text-shadow: 0 2px 18px rgba(0, 6, 24, 0.75);
+}
+.hero-tag span { display: block; color: rgba(255, 255, 255, 0.86); }
+.hero-cta {
+  display: inline-block; margin-top: 1.6rem; padding: 14px 44px; border-radius: 999px;
+  font: 400 1rem "Inter", var(--body); color: #fff; text-decoration: none; cursor: pointer; transition: transform 0.3s;
+}
+.hero-cta:hover { transform: scale(1.03); }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-rise, .animate-fade-rise-delay, .animate-fade-rise-delay-2 { animation: none; }
+  .hero.no-video .hero-bg { animation: none; }
+}
+
+/* điện thoại */
+@media (max-width: 860px) {
+  .nav { display: flex; justify-content: space-between; gap: 10px; padding: 10px 14px; top: 8px; width: calc(100% - 16px); }
+  .nav .logo { font-size: 1.4rem; }
+  .nav .logo .star { display: none; }
+  .nav nav { flex: 1; min-width: 0; justify-content: flex-start; gap: 10px; overflow-x: auto; white-space: nowrap; font-size: 0.7rem; scrollbar-width: none; }
+  .nav nav::-webkit-scrollbar { display: none; }
+  .nav nav a:first-child { display: none; }
+  .nav-cta { padding: 7px 14px; }
+  .hero-bg video { object-position: 16% center; }
+  .hero .hero-title { font-size: clamp(4.4rem, 24vw, 8rem); margin-top: clamp(84px, 14vh, 130px); }
+  .hero-bottom { padding-bottom: clamp(90px, 20vh, 160px); }
+  .hero-fade { height: 58%; }
+}

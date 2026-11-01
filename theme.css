@@ -1,0 +1,60 @@
+/* Chế độ sáng / tối. Chế độ sáng là mặc định; chế độ tối bật bằng html[data-theme="dark"]. */
+:root {
+  --surface: #ffffff;   /* nền thẻ, nút, chân trang */
+  --frame: #ffffff;     /* viền khung ảnh polaroid */
+  --dot: 45, 90, 166;   /* màu các chấm "sao" ở nền (R, G, B) */
+}
+
+html[data-theme="dark"] {
+  --blue: #4a7bd0;
+  --blue-dark: #3a68b8;
+  --bg: #0b1220;
+  --ink: #e8edf7;
+  --muted: #aab4c6;
+  --surface: #141d31;
+  --frame: #e3eaf6;
+  --dot: 150, 185, 240;
+  color-scheme: dark;
+}
+html[data-theme="dark"] body:not(.world) { background-color: var(--bg); background-image: none; }
+html[data-theme="dark"] #world-bg .glow { opacity: 0.32; }
+html[data-theme="dark"] .pol { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); }
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .tile,
+html[data-theme="dark"] .creator { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
+html[data-theme="dark"] .tab:hover { background: #1d2b49; }
+html[data-theme="dark"] .arrow:hover { background: var(--blue); }
+html[data-theme="dark"] .detail { background: #17233d; }
+html[data-theme="dark"] .shot { border-color: #2a3550; }
+html[data-theme="dark"] .shot.ph { background: linear-gradient(135deg, #1d2c4d, #2a3a66); }
+html[data-theme="dark"] .shot.ph span { color: #8fb2ee; }
+html[data-theme="dark"] .shot.ref { background: #18233b; }
+html[data-theme="dark"] .shot.sq { background: #3b2a33; }
+html[data-theme="dark"] .skills-art::after { background: linear-gradient(90deg, #243a66, #34457a); }
+html[data-theme="dark"] .banner { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45); }
+html[data-theme="dark"] .pills li { color: #9fc0f5; border-color: #3a68b8; }
+html[data-theme="dark"] .pills li.filled { color: #fff; }
+html[data-theme="dark"] .tags li { color: #9fc0f5; border-color: #3a68b8; }
+html[data-theme="dark"] .tab { color: #9fc0f5; border-color: #3a68b8; }
+html[data-theme="dark"] .tab[aria-selected="true"] { color: #fff; }
+html[data-theme="dark"] .pill.outline { color: #9fc0f5; border-color: #3a68b8; }
+html[data-theme="dark"] .pill.outline:hover { color: #fff; }
+html[data-theme="dark"] h2, html[data-theme="dark"] .panel h3, html[data-theme="dark"] .tile h3 { color: #8fb2ee; }
+html[data-theme="dark"] footer { color: #9fc0f5; }
+
+/* nút đổi chế độ: cố định ở góc phải dưới, luôn dùng được kể cả khi thanh điều hướng đã ẩn */
+.theme-btn {
+  position: fixed; right: 22px; bottom: 20px; z-index: 60;
+  width: 44px; height: 44px; padding: 0; border-radius: 50%; cursor: pointer;
+  display: grid; place-items: center;
+  background: var(--surface); color: var(--blue); border: 1.5px solid var(--blue);
+  transition: transform 0.25s, background 0.25s, color 0.25s;
+}
+.theme-btn:hover { transform: scale(1.08); background: var(--blue); color: #fff; }
+.theme-btn svg { width: 20px; height: 20px; }
+.theme-btn .moon { display: none; }
+html[data-theme="dark"] .theme-btn .sun { display: none; }
+html[data-theme="dark"] .theme-btn .moon { display: block; }
+html[data-theme="dark"] .theme-btn { color: #9fc0f5; border-color: #3a68b8; }
+html[data-theme="dark"] .theme-btn:hover { color: #fff; }
+@media (max-width: 860px) { .theme-btn { right: 12px; bottom: 12px; width: 40px; height: 40px; } }
