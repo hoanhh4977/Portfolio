@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="dark">
 <head>
   <meta charset="UTF-8">
+  <script>document.documentElement.classList.add('loading');</script>
+  <style>#loader{position:fixed;inset:0;z-index:99999;background:#000}html.loading,html.loading body{overflow:hidden}</style>
+  <noscript><style>#loader{display:none}html.loading,html.loading body{overflow:auto}</style></noscript>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nguyễn Hoàng Anh – Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,25 +16,25 @@
   <link rel="stylesheet" href="world.css">
   <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="cinema.css">
-  <script>
-    /* áp chế độ sáng/tối trước khi trang vẽ để không bị nháy */
-    try {
-      var t = localStorage.getItem('portfolio-theme');
-      if (!t) t = 'dark';
-      if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
-    } catch (e) {}
-  </script>
+  <link rel="stylesheet" href="loader.css">
 </head>
 <body>
+  <div id="loader" role="status" aria-label="Đang tải trang">
+    <div class="ld-panel ld-top"></div>
+    <div class="ld-panel ld-bottom"></div>
+    <div class="ld-label">Nguyễn Hoàng Anh · Portfolio</div>
+    <div class="ld-count" aria-hidden="true"><span id="ld-num">0</span></div>
+    <div class="ld-line" aria-hidden="true"><i></i></div>
+  </div>
+  <script src="loader.js"></script>
+
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="star" viewBox="0 0 24 24"><path d="M12 0C12.8 6.6 17.4 11.2 24 12 17.4 12.8 12.8 17.4 12 24 11.2 17.4 6.6 12.8 0 12 6.6 11.2 11.2 6.6 12 0z" fill="currentColor"/></symbol>
   </svg>
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <filter id="water" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.004 0.03" numOctaves="2" seed="4" result="noise">
-        <animate attributeName="baseFrequency" dur="14s" values="0.004 0.03;0.006 0.042;0.004 0.03" repeatCount="indefinite"/>
-      </feTurbulence>
+      <feTurbulence type="fractalNoise" baseFrequency="0.005 0.035" numOctaves="1" seed="4" result="noise"/>
       <feDisplacementMap in="SourceGraphic" in2="noise" scale="38" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
   </svg>
@@ -73,7 +77,7 @@
     <!-- GIỚI THIỆU -->
     <section class="about" id="about">
       <div class="bridge" data-static aria-hidden="true">
-        <video class="bridge-video" autoplay loop muted playsinline preload="metadata" poster="images/hero-poster.jpg">
+        <video class="bridge-video" loop muted playsinline preload="auto" poster="images/hero-poster.jpg">
           <source src="videos/hero.webm" type="video/webm">
           <source src="videos/hero.mp4" type="video/mp4">
         </video>
@@ -518,6 +522,5 @@
   </script>
   <script src="hero.js"></script>
   <script src="world.js"></script>
-  <script src="theme.js"></script>
 </body>
 </html>

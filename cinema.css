@@ -14,7 +14,7 @@ h3, .card h3, .panel h3, .tile h3, .sub { font-family: var(--head); font-weight:
 .tile h3 { font-size: 1.6rem; }
 .sub { font-size: 1.9rem; }
 .lead { font-family: var(--head); font-weight: 400; font-size: 1.75rem; line-height: 1.2; }
-.tab span, .num, .counter b { font-family: var(--head); }
+.tab span, .num { font-family: var(--head); }
 
 /* nhãn nhỏ phía trên tiêu đề (giống "AI × ME", "LET'S TALK") */
 h2[data-eyebrow]::before {
@@ -30,7 +30,7 @@ h2[data-eyebrow]::before {
 .bridge-video { object-fit: cover; object-position: center 30%; transform: scaleY(-1) scale(1.15); filter: url(#water) saturate(1.1); }
 /* gợn sáng chạy ngang trên mặt nước */
 .bridge-ripple {
-  position: absolute; inset: -10% 0; mix-blend-mode: soft-light; opacity: 0.32;
+  position: absolute; inset: -10% 0; opacity: 0.1;
   background: repeating-linear-gradient(180deg, rgba(255,255,255,0) 0px, rgba(255,255,255,0.35) 6px, rgba(255,255,255,0) 14px, rgba(255,255,255,0) 30px);
   animation: ripple-move 9s linear infinite;
 }
@@ -316,3 +316,22 @@ html[data-theme="dark"] .skills-bg-img::after {
 html[data-theme="dark"] #skills .pills li { background: rgba(10, 10, 12, 0.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 html[data-theme="dark"] #skills .pills li.filled { background: #fafafa; }
 html[data-theme="dark"] #skills .note { color: #e0e0e0; text-shadow: 0 1px 14px rgba(0, 0, 0, 0.8); }
+
+/* ===== ảnh nền nằm trong chặng (như bản cũ). Mép trên/dưới tan dần bằng gradient thay vì mặt nạ (nhẹ hơn) ===== */
+html[data-theme="dark"] .bridge, html[data-theme="dark"] .me-bg, html[data-theme="dark"] .journey-bg, html[data-theme="dark"] .skills-bg {
+  -webkit-mask-image: none !important; mask-image: none !important;
+}
+html[data-theme="dark"] .bridge::before, html[data-theme="dark"] .bridge::after,
+html[data-theme="dark"] .me-bg::before, html[data-theme="dark"] .me-bg::after,
+html[data-theme="dark"] .journey-bg::before, html[data-theme="dark"] .journey-bg::after,
+html[data-theme="dark"] .skills-bg::before, html[data-theme="dark"] .skills-bg::after {
+  content: ""; position: absolute; left: 0; right: 0; z-index: 5; pointer-events: none;
+}
+html[data-theme="dark"] .me-bg::before, html[data-theme="dark"] .journey-bg::before, html[data-theme="dark"] .skills-bg::before { top: 0; height: 360px; background: linear-gradient(to bottom, #0b0b0d 0, rgba(11,11,13,0.75) 90px, rgba(11,11,13,0) 360px); }
+html[data-theme="dark"] .me-bg::after, html[data-theme="dark"] .journey-bg::after, html[data-theme="dark"] .skills-bg::after { bottom: 0; height: 360px; background: linear-gradient(to top, #0b0b0d 0, rgba(11,11,13,0.75) 90px, rgba(11,11,13,0) 360px); }
+html[data-theme="dark"] .bridge::before { top: 0; height: 22%; background: linear-gradient(to bottom, #0b0b0d 0, rgba(11,11,13,0)); }
+html[data-theme="dark"] .bridge::after { bottom: 0; height: 30%; background: linear-gradient(to top, #0b0b0d 0, rgba(11,11,13,0)); }
+@media (max-width: 860px) {
+  html[data-theme="dark"] .me-bg::before, html[data-theme="dark"] .journey-bg::before, html[data-theme="dark"] .skills-bg::before,
+  html[data-theme="dark"] .me-bg::after, html[data-theme="dark"] .journey-bg::after, html[data-theme="dark"] .skills-bg::after { height: 200px; }
+}

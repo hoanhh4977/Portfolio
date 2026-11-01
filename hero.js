@@ -33,15 +33,7 @@
   if (p && p.catch) p.catch(function () {});
 })();
 
-/* video mờ dưới hero: chỉ chạy khi đang ở gần màn hình, đỡ nặng máy */
-(function () {
-  var v = document.querySelector('.bridge-video');
-  if (!v) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) { v.pause(); return; }
-  new IntersectionObserver(function (es) {
-    es.forEach(function (e) { if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); });
-  }, { rootMargin: '200px' }).observe(v);
-})();
+/* video mờ dưới hero do world.js bật/tắt theo độ hiện của lớp */
 
 /* journey-progress: đường giữa của dòng thời gian sáng dần theo lúc cuộn */
 (function () {
@@ -58,4 +50,14 @@
   window.addEventListener('scroll', req, { passive: true });
   window.addEventListener('resize', req);
   upd();
+})();
+
+/* hero-pause: dừng video hero khi đã cuộn khỏi hero (đỡ giải mã video khi xem phần khác) */
+(function () {
+  var hero = document.querySelector('.hero'), v = hero && hero.querySelector('video');
+  if (!v || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); });
+  }, { threshold: 0.02 }).observe(hero);
 })();

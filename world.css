@@ -65,7 +65,8 @@ html.world-on { scroll-snap-type: y proximity; scroll-padding-top: 70px; }
   position: fixed; left: 22px; bottom: 20px; z-index: 30; padding: 6px 16px; border-radius: 999px;
   background: var(--surface); border: 1.5px solid var(--blue); color: var(--blue); font-weight: 600; font-size: 0.82rem;
 }
-.counter b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.05rem; }
+.counter, .counter b { font-family: var(--body); font-style: normal; font-variant-numeric: tabular-nums; }
+.counter b { font-weight: 700; font-size: 0.95rem; }
 
 /* gợi ý cuộn */
 .hint {
@@ -81,3 +82,17 @@ html.world-on { scroll-snap-type: y proximity; scroll-padding-top: 70px; }
   .counter { left: 10px; bottom: 10px; font-size: 0.75rem; }
   body.world .stage { min-height: 100svh; }
 }
+
+
+/* ===== hiệu năng: nền màu theo chặng bằng các lớp xếp chồng đổi opacity (GPU), không vẽ lại gradient ===== */
+#world-bg { z-index: -2; background: #f4f4f4; contain: strict; }
+html[data-theme="dark"] #world-bg { background: #0a0a0a; }
+#world-bg .sbg { position: absolute; inset: 0; opacity: 0; will-change: opacity; background: linear-gradient(160deg, var(--lc1), var(--lc2)); }
+html[data-theme="dark"] #world-bg .sbg { background: linear-gradient(160deg, var(--dc1), var(--dc2)); }
+#world-bg .g1 { background: #78aae6; }
+#world-bg .g2 { background: #aecdf3; }
+html[data-theme="dark"] #world-bg .g1 { background: #1a2a44; }
+html[data-theme="dark"] #world-bg .g2 { background: #142038; }
+#world-bg .glow, #world-bg .layer { will-change: transform; }
+/* thanh tiến độ: co giãn bằng transform */
+.fly-bar i { width: 100%; transform: scaleX(0); transform-origin: 0 50%; will-change: transform; background: var(--blue); }
