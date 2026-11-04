@@ -25,14 +25,15 @@ body.world footer { position: relative; }
 #world-bg .l3 { background-image: radial-gradient(circle, rgba(var(--dot), 0.14) 4px, transparent 5px); background-size: 380px 380px; background-position: 140px 40px; }
 
 /* các chặng */
-body.world .stage { position: relative; min-height: 100vh; scroll-snap-align: start; }
+body.world .stage { position: relative; min-height: 100vh; }
 body.world .stage.skills { align-content: center; }
 body.world .stage.about, body.world .stage.me, body.world .stage.projects, body.world .stage.journey-stage {
   display: flex; flex-direction: column; justify-content: center;
 }
 body.world .stage.contact { display: flex; flex-direction: column; justify-content: center; margin-top: 0; }
 body.world .stage > * { will-change: transform, opacity; }
-html.world-on { scroll-snap-type: y proximity; scroll-padding-top: 70px; }
+/* không dùng scroll-snap: nó hút trang về đầu chặng nên cuộn từng đoạn nhỏ bị kẹt và giật */
+html.world-on { scroll-padding-top: 70px; }
 
 /* thanh tiến độ */
 .fly-bar { position: fixed; left: 0; top: 0; height: 4px; width: 100%; z-index: 40; background: transparent; }

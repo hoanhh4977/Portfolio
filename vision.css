@@ -1,0 +1,37 @@
+/* Dải ảnh cuộn ngang 3 hàng (hai chiều ngược nhau), tiêu đề lớn đảo màu nằm giữa, tràn hết bề ngang màn hình */
+.vision {
+  position: relative; margin: 48px 0 56px calc(50% - 50vw); width: 100vw; overflow: hidden;
+  display: grid; gap: 14px; padding: 4px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+.vrow { overflow: hidden; }
+.vtrack { display: flex; width: max-content; animation: vmarq 70s linear infinite; will-change: transform; }
+.vrow-2 .vtrack { animation-direction: reverse; animation-duration: 82s; }
+.vrow-3 .vtrack { animation-duration: 62s; animation-delay: -18s; }
+.vrow-1 .vtrack { animation-delay: -6s; }
+.vrow-2 .vtrack { animation-delay: -30s; }
+.vset { display: flex; gap: 28px; padding-right: 28px; }
+.vcard { flex: none; width: 300px; height: 200px; border-radius: 14px; overflow: hidden; background: #111; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); }
+.vcard img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; user-select: none; }
+@keyframes vmarq { to { transform: translate3d(-50%, 0, 0); } }
+.vision.paused .vtrack { animation-play-state: paused; }
+
+/* tiêu đề đè lên hàng giữa, đảo màu theo ảnh bên dưới */
+.vtitle {
+  position: absolute; left: 50%; top: 50%; z-index: 3; margin: 0; transform: translate(-50%, -50%);
+  max-width: 92%; text-align: center; white-space: nowrap; pointer-events: none;
+  font-family: var(--head); font-weight: 400; font-size: clamp(2rem, 5vw, 4.5rem); line-height: 1; letter-spacing: -0.01em;
+  color: #fff; mix-blend-mode: difference;
+}
+
+@media (max-width: 860px) {
+  .vision { gap: 10px; margin: 32px 0 40px calc(50% - 50vw); }
+  .vset { gap: 16px; padding-right: 16px; }
+  .vcard { width: 200px; height: 134px; border-radius: 12px; }
+  .vtitle { white-space: normal; font-size: clamp(1.7rem, 8vw, 2.4rem); line-height: 1.05; }
+}
+@media (prefers-reduced-motion: reduce) { .vtrack { animation: none; } .vrow { overflow-x: auto; } }
+
+/* nhẹ hơn: bỏ mặt nạ mờ mép (mặt nạ phải tính lại mỗi khung hình khi ảnh đang chạy) */
+.vision { -webkit-mask-image: none; mask-image: none; }

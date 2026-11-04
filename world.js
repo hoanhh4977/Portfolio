@@ -11,7 +11,7 @@
   var STAGES = [
     { sel: '.hero', label: 'Khởi hành', l: ['#f4f4f4', '#e3ecf9'], d: ['#0a0a0a', '#0a0a0a'] },
     { sel: '#about', label: 'Giới thiệu', l: ['#f2f6fc', '#dde8f7'], d: ['#0a0a0a', '#0c0c0d'] },
-    { sel: '#me', label: 'Về mình', l: ['#eef3fb', '#d6e4f6'], d: ['#0a0a0a', '#0d0d0f'] },
+    { sel: '#me', label: 'Điều thú vị', l: ['#eef3fb', '#d6e4f6'], d: ['#0a0a0a', '#0d0d0f'] },
     { sel: '#journey', label: 'Hành trình', l: ['#ebf1fa', '#d2e1f4'], d: ['#0a0a0a', '#0e0e11'] },
     { sel: '#projects', label: 'Dự án', l: ['#e9f0fa', '#cfe0f4'], d: ['#0a0a0a', '#0e0e10'] },
     { sel: '#skills', label: 'Kỹ năng', l: ['#e4edf8', '#c6daf1'], d: ['#0a0a0a', '#0f0f12'] },
@@ -20,6 +20,7 @@
   var els = STAGES.map(function (s) { return document.querySelector(s.sel); });
   if (els.some(function (e) { return !e; })) return; // thiếu phần nào thì không bật
 
+  function T(s) { return window.I18N ? window.I18N.t(s) : s; }
   function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
@@ -42,11 +43,11 @@
 
   var route = document.createElement('nav');
   route.className = 'route';
-  route.setAttribute('aria-label', 'Các chặng');
+  route.setAttribute('aria-label', T('Các chặng'));
   var ol = document.createElement('ol');
   STAGES.forEach(function (s, i) {
     var li = document.createElement('li');
-    li.innerHTML = '<span>' + s.label + '</span><button type="button" aria-label="Đến chặng ' + (i + 1) + ': ' + s.label + '"></button>';
+    li.innerHTML = '<span>' + T(s.label) + '</span><button type="button" aria-label="' + T('Đến chặng') + ' ' + (i + 1) + ': ' + T(s.label) + '"></button>';
     li.querySelector('button').addEventListener('click', function () {
       els[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
@@ -60,7 +61,7 @@
   counter.setAttribute('aria-hidden', 'true');
   var hint = document.createElement('div');
   hint.className = 'hint';
-  hint.textContent = 'Cuộn để bay tiếp ↓';
+  hint.textContent = T('Cuộn để bay tiếp ↓');
   [bg, bar, route, counter, hint].forEach(function (e) { document.body.appendChild(e); });
 
   /* các lớp ảnh nền theo chặng (đã gắn sẵn trong HTML) */
@@ -78,7 +79,7 @@
       var r = sec.getBoundingClientRect(), top = r.top + sy, kids = [];
       Array.prototype.forEach.call(sec.children, function (c) {
         if (c.hasAttribute('data-static')) return;
-        kids.push({ el: c, top: top + c.offsetTop, h: c.offsetHeight, tf: '', op: '' });
+        kids.push({ el: c, top: top + c.offsetTop, h: c.offsetHeight, ns: c.hasAttribute('data-noscale'), tf: '', op: '' });
       });
       return { top: top, h: r.height, kids: kids };
     });
@@ -140,7 +141,7 @@
       lastIdx = idx;
       for (var k = 0; k < items.length; k++) items[k].classList.toggle('active', k === idx);
       route.classList.toggle('dark', idx === 0 || idx === STAGES.length - 1);
-      counter.innerHTML = '<b>' + pad(idx + 1) + '</b> / ' + pad(STAGES.length) + ' · ' + STAGES[idx].label;
+      counter.innerHTML = '<b>' + pad(idx + 1) + '</b> / ' + pad(STAGES.length) + ' · ' + T(STAGES[idx].label);
     }
     var gone = sy > 60;
     if (gone !== lastHint) { lastHint = gone; hint.classList.toggle('gone', gone); }
@@ -167,7 +168,7 @@
         var enter = clamp((vh * 0.94 - cTop) / (vh * 0.32));
         var leave = clamp((vh * 0.2 - cBot) / (vh * 0.25));
         var e = enter * enter * (3 - 2 * enter);
-        var scale = (0.9 + 0.1 * e) * (1 + 0.08 * leave);
+        var scale = kd.ns ? 1 : (0.9 + 0.1 * e) * (1 + 0.08 * leave); /* phần tử rộng bằng màn hình không phóng to (tránh tràn ngang) */
         var y = (1 - e) * 70 - leave * 30;
         var tf = 'translate3d(0,' + y.toFixed(1) + 'px,0) scale(' + scale.toFixed(3) + ')';
         var opv = (e * (1 - leave * 0.9)).toFixed(3);
@@ -197,6 +198,17 @@
   }
 
 
+
+  /* đổi ngôn ngữ: cập nhật nhãn các chặng, bộ đếm và gợi ý */
+  window.addEventListener('langchange', function () {
+    STAGES.forEach(function (s, i) {
+      items[i].querySelector('span').textContent = T(s.label);
+      items[i].querySelector('button').setAttribute('aria-label', T('Đến chặng') + ' ' + (i + 1) + ': ' + T(s.label));
+    });
+    route.setAttribute('aria-label', T('Các chặng'));
+    hint.textContent = T('Cuộn để bay tiếp ↓');
+    lastIdx = -1; request();
+  });
 
   set(on);
 })();

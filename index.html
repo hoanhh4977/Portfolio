@@ -7,7 +7,7 @@
   <noscript><style>#loader{display:none}html.loading,html.loading body{overflow:auto}</style></noscript>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nguyễn Hoàng Anh – Portfolio</title>
+  <title data-i18n="1">Nguyễn Hoàng Anh – Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,100..900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -17,12 +17,15 @@
   <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="cinema.css">
   <link rel="stylesheet" href="loader.css">
+  <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="i18n.css">
+  <link rel="stylesheet" href="vision.css">
 </head>
 <body>
   <div id="loader" role="status" aria-label="Đang tải trang">
     <div class="ld-panel ld-top"></div>
     <div class="ld-panel ld-bottom"></div>
-    <div class="ld-label">Nguyễn Hoàng Anh · Portfolio</div>
+    <div data-i18n="2" class="ld-label">Nguyễn Hoàng Anh · Portfolio</div>
     <div class="ld-count" aria-hidden="true"><span id="ld-num">0</span></div>
     <div class="ld-line" aria-hidden="true"><i></i></div>
   </div>
@@ -40,16 +43,17 @@
   </svg>
 
   <header class="nav">
-    <a class="logo" href="#top"><svg class="star"><use href="#star"/></svg> Hoanhh</a>
-    <nav>
-      <a class="active" href="#top">Trang chủ</a>
-      <a href="#about">Giới thiệu</a>
-      <a href="#me">Về mình</a>
-      <a href="#journey">Hành trình</a>
-      <a href="#projects">Dự án</a>
-      <a href="#skills">Kỹ năng</a>
+    <a data-i18nt="3" class="logo" href="#top"><svg class="star"><use href="#star"/></svg> Hoanhh</a>
+    <nav id="nav-links">
+      <a data-i18n="4" class="active" href="#top">Trang chủ</a>
+      <a data-i18n="5" href="#about">Giới thiệu</a>
+      <a data-i18n="6" href="#me">Điều thú vị</a>
+      <a data-i18n="7" href="#journey">Hành trình</a>
+      <a data-i18n="8" href="#projects">Dự án</a>
+      <a data-i18n="9" href="#skills">Kỹ năng</a>
     </nav>
-    <a class="nav-cta liquid-glass" href="#contact">Liên hệ</a>
+    <a data-i18n="10" class="nav-cta liquid-glass" href="#contact">Liên hệ</a>
+    <button class="nav-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
   </header>
 
   <main id="top">
@@ -64,12 +68,12 @@
       </div>
       <div class="hero-fade" data-static aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="tint"></span></div>
       <div class="hero-content" data-static>
-        <h1 class="hero-title animate-fade-rise">Hoàng <em>Anh</em></h1>
+        <h1 data-i18n="11" class="hero-title animate-fade-rise">Hoàng <em>Anh</em></h1>
         <div class="hero-bottom">
-          <p class="hero-tag animate-fade-rise-delay">Từ dòng code đến sản phẩm hữu ích.
-            <span>Mình là Nguyễn Hoàng Anh (Hoanhh), sinh viên Công nghệ thông tin K24 tại Đại học Giao thông vận tải TP.HCM. Mình xây dựng web, đang học NLP và Transformer, và làm content, dựng video.</span>
+          <p data-i18nt="12" class="hero-tag animate-fade-rise-delay">Từ dòng code đến sản phẩm hữu ích.
+            <span data-i18n="13">Mình là Nguyễn Hoàng Anh (Hoanhh), sinh viên Công nghệ thông tin K24 tại Đại học Giao thông vận tải TP.HCM. Mình xây dựng web, đang học NLP và Transformer, và làm content, dựng video.</span>
           </p>
-          <a class="hero-cta liquid-glass animate-fade-rise-delay-2" href="#projects">Xem dự án</a>
+          <a data-i18n="14" class="hero-cta liquid-glass animate-fade-rise-delay-2" href="#projects">Xem dự án</a>
         </div>
       </div>
     </section>
@@ -85,114 +89,198 @@
         <span class="bridge-ripple"></span>
         <span class="bridge-dim"></span>
       </div>
-      <img class="banner" src="images/about-photo.jpg" alt="Ảnh mình mặc áo dài đỏ, tạo hình trái tim bằng hai tay" loading="lazy">
       <div class="two-col">
-        <h2 data-eyebrow="Con người">Giới thiệu.<span class="rule"></span></h2>
+        <div class="about-side">
+          <h2 data-i18nt="15" data-eyebrow="Con người">Giới thiệu.<span class="rule"></span></h2>
+          <img class="about-photo" src="images/about-photo.jpg" alt="Ảnh mình mặc áo dài đỏ, tạo hình trái tim bằng hai tay" loading="lazy">
+        </div>
         <div class="text">
-          <p class="lead">Sinh viên Công nghệ thông tin đam mê xây dựng web và tìm hiểu xử lý ngôn ngữ tự nhiên (NLP).</p>
-          <p>Mình có nền tảng về lập trình hướng đối tượng (OOP) với Java và Python, làm giao diện bằng HTML và CSS, và xây dựng API với FastAPI. Hiện mình đang học NLP và tìm hiểu kiến trúc Transformer, nền tảng của các mô hình ngôn ngữ hiện đại.</p>
-          <p>Mình muốn kết hợp kỹ năng làm web với AI để tạo ra những sản phẩm hữu ích và dễ sử dụng.</p>
+          <p data-i18n="16" class="lead">Sinh viên Công nghệ thông tin đam mê xây dựng web và tìm hiểu xử lý ngôn ngữ tự nhiên (NLP).</p>
+          <p data-i18n="17">Mình có nền tảng về lập trình hướng đối tượng (OOP) với Java và Python, làm giao diện bằng HTML và CSS, và xây dựng API với FastAPI. Hiện mình đang học NLP và tìm hiểu kiến trúc Transformer, nền tảng của các mô hình ngôn ngữ hiện đại.</p>
+          <p data-i18n="18">Mình muốn kết hợp kỹ năng làm web với AI để tạo ra những sản phẩm hữu ích và dễ sử dụng.</p>
           <dl class="facts">
-            <div><dt>Trường</dt><dd>Đại học Giao thông vận tải TP.HCM (University of Transport Ho Chi Minh City)</dd></div>
-            <div><dt>Ngành</dt><dd>Công nghệ thông tin</dd></div>
-            <div><dt>Khóa</dt><dd>24</dd></div>
-            <div><dt>GPA</dt><dd>3.34</dd></div>
+            <div><dt data-i18n="19">Trường</dt><dd data-i18n="20">Đại học Giao thông vận tải TP.HCM (University of Transport Ho Chi Minh City)</dd></div>
+            <div><dt data-i18n="21">Ngành</dt><dd data-i18n="22">Công nghệ thông tin</dd></div>
+            <div><dt data-i18n="23">Khóa</dt><dd>24</dd></div>
+            <div><dt data-i18n="24">GPA</dt><dd>3.34</dd></div>
+            <div><dt data-i18n="25">Quê quán</dt><dd data-i18n="26">Đắk Lắk</dd></div>
+            <div><dt data-i18n="27">Nơi ở</dt><dd data-i18n="28">TP. Hồ Chí Minh</dd></div>
           </dl>
         </div>
+      </div>
+      <div class="vision" data-noscale aria-label="Một vài khoảnh khắc của mình">
+        <div class="vrow vrow-1"><div class="vtrack"><div class="vset"><span class="vcard"><img src="images/moment-1.jpg" alt="Ảnh mình mặc áo dài đỏ, tạo hình trái tim bằng hai tay" style="object-position:50% 35%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/moment-3.jpg" alt="Ảnh mình đội nón lá bên bờ sông, phía sau là cây cầu" style="object-position:50% 55%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/moment-6.jpg" alt="Ảnh mình đội voan trắng, đeo kính lông hồng và cầm bó hoa ở photobooth" style="object-position:50% 38%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/avatar.jpg" alt="Ảnh chân dung của Nguyễn Hoàng Anh" style="object-position:50% 60%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/moment-2.jpg" alt="Ảnh tự chụp của mình với nón lá" style="object-position:50% 45%" loading="lazy" draggable="false"></span></div><div class="vset" aria-hidden="true"><span class="vcard"><img src="images/moment-1.jpg" alt="" style="object-position:50% 35%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/moment-3.jpg" alt="" style="object-position:50% 55%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/moment-6.jpg" alt="" style="object-position:50% 38%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/avatar.jpg" alt="" style="object-position:50% 60%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/moment-2.jpg" alt="" style="object-position:50% 45%" loading="lazy" draggable="false"></span></div></div></div>
+        <div class="vrow vrow-2"><div class="vtrack"><div class="vset"><span class="vcard"><img src="images/skills-bg.jpg" alt="Ảnh mình đội nón lá bên bờ sông, phía sau là cây cầu" style="object-position:50% 75%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/about-banner.jpg" alt="Ảnh mình đội nón lá trước một công trình cổ" style="object-position:50% 70%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/moment-4.jpg" alt="Ảnh mình đội nón lá trước một công trình cổ" style="object-position:50% 30%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/me-bg.jpg" alt="Ảnh mình đội nón giấy có mặt cười" style="object-position:50% 25%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/journey-bg.jpg" alt="Ảnh mình mặc áo dài trắng thời học sinh" style="object-position:60% 25%" loading="lazy" draggable="false"></span></div><div class="vset" aria-hidden="true"><span class="vcard"><img src="images/skills-bg.jpg" alt="" style="object-position:50% 75%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/about-banner.jpg" alt="" style="object-position:50% 70%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/moment-4.jpg" alt="" style="object-position:50% 30%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/me-bg.jpg" alt="" style="object-position:50% 25%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/journey-bg.jpg" alt="" style="object-position:60% 25%" loading="lazy" draggable="false"></span></div></div></div>
+        <div class="vrow vrow-3"><div class="vtrack"><div class="vset"><span class="vcard"><img src="images/moment-5.jpg" alt="Ảnh mình ngồi trong quán, bên cạnh bình hoa cúc trắng" style="object-position:55% 30%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/moment-1.jpg" alt="Ảnh mình mặc áo dài đỏ, tạo hình trái tim bằng hai tay" style="object-position:50% 30%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/moment-2.jpg" alt="Ảnh tự chụp của mình với nón lá" style="object-position:50% 40%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/about-photo.jpg" alt="Ảnh mình mặc áo dài đỏ, tạo hình trái tim bằng hai tay" style="object-position:50% 50%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/skills-bg.jpg" alt="Ảnh mình đội nón lá bên bờ sông, phía sau là cây cầu" style="object-position:50% 65%" loading="lazy" draggable="false"></span></div><div class="vset" aria-hidden="true"><span class="vcard"><img src="images/moment-5.jpg" alt="" style="object-position:55% 30%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/moment-1.jpg" alt="" style="object-position:50% 30%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/moment-2.jpg" alt="" style="object-position:50% 40%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/about-photo.jpg" alt="" style="object-position:50% 50%" loading="lazy" draggable="false"></span><span class="vcard"><img src="images/skills-bg.jpg" alt="" style="object-position:50% 65%" loading="lazy" draggable="false"></span></div></div></div>
+        <h3 class="vtitle" data-i18n="v1">Khoảnh khắc. Khung hình. Mình.</h3>
       </div>
     </section>
 
     <!-- VỀ MÌNH -->
     <section class="me" id="me">
       <div class="me-bg" data-static aria-hidden="true"><div class="me-bg-fill"></div><div class="me-bg-img"></div></div>
-      <h2 data-eyebrow="Ngoài code">Về mình.<svg class="star burst"><use href="#star"/></svg><span class="rule"></span></h2>
-      <p class="me-lead">Ngoài code, mình thích hát, thích bơi và thỉnh thoảng làm bánh. Đây là vài điều về mình.</p>
+      <div class="fun-top">
+      <div class="fun-left">
+      <div class="fun-head">
+        <h2 data-i18nt="29" data-eyebrow="Ngoài code">Một số điều thú vị về mình.<svg class="star burst"><use href="#star"/></svg><span class="rule"></span></h2>
+      </div>
+      <p data-i18n="30" class="me-lead">Ngoài code, mình thích hát, thích bơi và thỉnh thoảng làm bánh. Đây là vài điều về mình.</p>
 
-      <p class="mini">Ba từ mình tự mô tả</p>
+      <p data-i18n="31" class="mini">Ba từ mình tự mô tả</p>
       <ul class="pills three">
-        <li class="filled">Ngơ <svg class="star"><use href="#star"/></svg></li>
-        <li>Nhạt <svg class="star"><use href="#star"/></svg></li>
-        <li class="filled">Vô tri <svg class="star"><use href="#star"/></svg></li>
+        <li data-i18nt="32" class="filled">Ngơ <svg class="star"><use href="#star"/></svg></li>
+        <li data-i18nt="33">Nhạt <svg class="star"><use href="#star"/></svg></li>
+        <li data-i18nt="34" class="filled">Vô tri <svg class="star"><use href="#star"/></svg></li>
       </ul>
+      </div>
+      <div class="fun-photos">
+          <img class="fun-photo" src="images/fun-photo-4.jpg" alt="Ảnh mình cùng các bạn trong buổi chụp kỷ yếu, mặc áo tốt nghiệp" loading="lazy">
+          <img class="fun-photo" src="images/fun-photo-3.jpg" alt="Ảnh mình đội voan trắng, đeo kính lông hồng và cầm bó hoa" loading="lazy">
+          <img class="fun-photo" src="images/fun-photo-2.jpg" alt="Ảnh mình cười tươi buổi tối, tay làm dáng dưới cằm" loading="lazy">
+          <img class="fun-photo" src="images/fun-photo.jpg" alt="Ảnh tự chụp vui của mình, úp chiếc vá lưới lên mặt" loading="lazy">
+          <img class="fun-photo" src="images/fun-photo-5.jpg" alt="Ảnh mình đội mũ lông, mặc áo trắng đứng cạnh lan can vào buổi tối" loading="lazy">
+        </div>
+      </div>
 
       <div class="tiles">
-        <article class="tile">
-          <h3>Lúc rảnh</h3>
-          <p>Chơi game, làm toán, và thỉnh thoảng làm bánh.</p>
+        <article class="tile t-play ov">
+          <div class="t-media"><img src="images/math.jpg" alt="Ảnh mình làm toán, tựa mặt lên cuốn vở ghi đầy công thức" loading="lazy"></div>
+          <div class="t-body">
+            <h3 data-i18n="35">Lúc rảnh</h3>
+            <p data-i18n="36">Chơi game, làm toán, và thỉnh thoảng làm bánh.</p>
+          </div>
         </article>
-        <article class="tile">
-          <h3>Ca hát</h3>
-          <p>Mình đam mê ca hát và rất thích đi nghe nhạc ở phòng trà.</p>
+
+        <article class="tile t-sing">
+          <div class="t-body">
+            <h3 data-i18n="37">Ca hát</h3>
+            <p data-i18n="38">Mình đam mê ca hát và rất thích đi nghe nhạc ở phòng trà.</p>
+            <a class="tile-link" href="https://youtu.be/XkzbzX8OO4E" target="_blank" rel="noopener noreferrer" data-i18n="s2">Mở trên YouTube ↗</a>
+          </div>
+          <div class="t-media">
+            <div class="sing-video" data-yt="XkzbzX8OO4E">
+              <img class="sing-cover" src="images/sing-cover.jpg" alt="Ảnh bìa video mình hát" loading="lazy">
+              <button class="sing-play" type="button" aria-label="Phát video mình hát" data-yt-title="Hoanhh hát nè">
+                <span class="sing-icon" aria-hidden="true">▶</span>
+                <span class="sing-label" data-i18n="s1">Xem video mình hát</span>
+              </button>
+            </div>
+          </div>
         </article>
-        <article class="tile">
-          <h3>Bơi lội và biển</h3>
-          <p>Mình biết bơi ếch và bơi ngửa, nên rất thích đi du lịch những nơi có biển.</p>
+
+        <article class="tile t-swim">
+          <div class="t-body">
+            <h3 data-i18n="39">Bơi lội và biển</h3>
+            <p data-i18n="40">Mình biết bơi ếch và bơi ngửa, nên rất thích đi du lịch những nơi có biển.</p>
+          </div>
         </article>
-        <article class="tile">
-          <h3>Phim yêu thích</h3>
-          <p>Dạo gần đây mình hay xem “phim gấu”, thể loại phim hoạt hình hài hước kể chuyện trên YouTube, và xem rất nhiều.</p>
+
+        <article class="tile t-movie">
+          <div class="t-media"><img src="images/phim-gau.jpg" alt="Hình bìa một tập phim hoạt hình gấu hài hước trên YouTube" loading="lazy" onerror="this.remove()"></div>
+          <div class="t-body">
+            <h3 data-i18n="41">Phim yêu thích</h3>
+            <p data-i18n="42">Dạo gần đây mình hay xem “phim gấu”, thể loại phim hoạt hình hài hước kể chuyện trên YouTube, và xem rất nhiều.</p>
+          </div>
         </article>
-        <article class="tile">
-          <h3>Thuyết trình</h3>
-          <p>Mình thuyết trình khá tự tin trước đám đông và rất thích điều đó, vì sau này mình muốn trở thành giảng viên.</p>
+
+        <article class="tile t-present ov">
+          <div class="t-media"><img src="images/present.jpg" alt="Ảnh mình đang thuyết trình trước lớp" loading="lazy"></div>
+          <div class="t-body">
+            <h3 data-i18n="43">Thuyết trình</h3>
+            <p data-i18n="44">Mình thuyết trình khá tự tin trước đám đông và rất thích điều đó, vì sau này mình muốn trở thành giảng viên.</p>
+          </div>
         </article>
-        <article class="tile">
-          <h3>Quê và nơi ở</h3>
-          <p>Quê ở Đắk Lắk, hiện mình đang sống ở TP.HCM.</p>
+
+        <article class="tile t-award">
+          <div class="t-media"><img src="images/award-math.jpg" alt="Cúp và giấy khen giải Ba môn Toán của mình" loading="lazy"></div>
+          <div class="t-body">
+            <h3 data-i18n="k1">Giải Ba môn Toán</h3>
+            <p data-i18n="k2">Mình được giải Ba môn Toán của trường.</p>
+          </div>
+        </article>
+
+        <article class="tile t-hair ov">
+          <div class="t-media two">
+            <img src="images/hair-1.jpg" alt="Cuộn tóc mình tự cắt, cầm trên tay" loading="lazy">
+            <img src="images/hair-2.jpg" alt="Mình nhìn lên với mái tóc bob ngắn dài hai bên" loading="lazy">
+          </div>
+          <div class="t-body">
+            <h3 data-i18n="h1">Tự cắt tóc</h3>
+            <p data-i18n="h2">Mình tự cắt tóc, bên ngắn bên dài kkkk.</p>
+          </div>
+        </article>
+
+        <article class="tile t-crochet ov">
+          <div class="t-media two">
+            <img src="images/crochet-1.jpg" alt="Quả cam bằng len mình móc, có chiếc lá xanh nhỏ" loading="lazy">
+            <img src="images/crochet-2.jpg" alt="Mình cầm bông hoa len màu hồng mình móc" loading="lazy">
+          </div>
+          <div class="t-body">
+            <h3 data-i18n="c3">Móc len</h3>
+            <p data-i18n="c4">Mình còn biết móc len, làm những món đồ nhỏ xinh như quả cam hay bông hoa.</p>
+          </div>
+        </article>
+
+        <article class="tile t-food">
+          <div class="t-body">
+            <h3 data-i18n="c1">Vào bếp</h3>
+            <p data-i18n="c2">Thỉnh thoảng mình tự vào bếp: làm bánh, chuẩn bị cơm hộp, cuộn kimbap, hay nấu một tô mì với tôm, ngô và nấm.</p>
+          </div>
+          <div class="t-media four">
+            <img src="images/food-1.jpg" alt="Mình chuẩn bị cơm hộp với thịt viên, cà rốt và cơm trắng" loading="lazy" onerror="this.remove()">
+            <img src="images/food-2.jpg" alt="Kimbap mình cuộn, ăn kèm nho và xoài xanh" loading="lazy" onerror="this.remove()">
+            <img src="images/food-3.jpg" alt="Hai tô mì với tôm, ngô, nấm và thịt xào" loading="lazy" onerror="this.remove()">
+            <img src="images/banh.jpg" alt="Đĩa bánh chiên giòn mình tự làm" loading="lazy">
+          </div>
         </article>
       </div>
 
       <div class="creator">
         <div class="creator-text">
-          <h3 class="sub">Content creator và editor</h3>
-          <p>Ngoài code, mình làm content và dựng video. Mình tự làm content cho kênh TikTok <strong>Đóm Đi Đêm</strong> (@domdidemne), nội dung giải trí, có video đạt hơn 500 nghìn lượt xem. Mình dựng video bằng CapCut: ghép nhiều lớp hình, chữ và nhạc nền, chỉnh tốc độ từng đoạn.</p>
-          <p class="stat">Kênh Đóm Đi Đêm tính đến 01/11/2026: hơn 1.200 người theo dõi, hơn 83 nghìn lượt thích.</p>
-          <p class="mini">Kênh mình làm và edit video</p>
+          <h3 data-i18n="45" class="sub">Content creator và editor</h3>
+          <p data-i18n="46">Ngoài code, mình làm content và dựng video. Mình tự làm content cho kênh TikTok <strong>Đóm Đi Đêm</strong> (@domdidemne), nội dung giải trí, có video đạt hơn 500 nghìn lượt xem. Mình dựng video bằng CapCut: ghép nhiều lớp hình, chữ và nhạc nền, chỉnh tốc độ từng đoạn.</p>
+          <p data-i18n="47" class="stat">Kênh Đóm Đi Đêm tính đến 01/11/2026: hơn 1.200 người theo dõi, hơn 83 nghìn lượt thích.</p>
+          <p data-i18n="48" class="mini">Kênh mình làm và edit video</p>
           <div class="links">
-            <a class="pill" href="https://www.tiktok.com/@domdidemne" target="_blank" rel="noopener noreferrer">Đóm Đi Đêm</a>
-            <a class="pill outline" href="https://www.tiktok.com/@bot.2720" target="_blank" rel="noopener noreferrer">Bột Săm Soi</a>
-            <a class="pill outline" href="https://www.tiktok.com/@ngocngoongo" target="_blank" rel="noopener noreferrer">Ngọc Ngoo Ngơ</a>
-            <a class="pill outline" href="https://www.tiktok.com/@mittobot.2720" target="_blank" rel="noopener noreferrer">Mít Tờ Bột</a>
+            <a data-i18n="49" class="pill" href="https://www.tiktok.com/@domdidemne" target="_blank" rel="noopener noreferrer">Đóm Đi Đêm</a>
+            <a data-i18n="50" class="pill outline" href="https://www.tiktok.com/@bot.2720" target="_blank" rel="noopener noreferrer">Bột Săm Soi</a>
+            <a data-i18n="51" class="pill outline" href="https://www.tiktok.com/@ngocngoongo" target="_blank" rel="noopener noreferrer">Ngọc Ngoo Ngơ</a>
+            <a data-i18n="52" class="pill outline" href="https://www.tiktok.com/@mittobot.2720" target="_blank" rel="noopener noreferrer">Mít Tờ Bột</a>
           </div>
         </div>
         <figure class="channel channel-side">
           <a href="https://www.tiktok.com/@domdidemne" target="_blank" rel="noopener noreferrer"><img class="pol" src="images/tiktok-channel.jpg" alt="Trang kênh TikTok Đóm Đi Đêm với các video nổi bật" loading="lazy"></a>
-          <figcaption>Kênh TikTok <strong>Đóm Đi Đêm</strong> (ảnh chụp ngày 01/11/2026). Các video ghim đạt 300,8K, 510K và 160,6K lượt xem. Bấm vào ảnh để xem kênh.</figcaption>
+          <figcaption data-i18n="53">Kênh TikTok <strong>Đóm Đi Đêm</strong> (ảnh chụp ngày 01/11/2026). Các video ghim đạt 300,8K, 510K và 160,6K lượt xem. Bấm vào ảnh để xem kênh.</figcaption>
         </figure>
       </div>
 
-      <div class="moments" aria-label="Một vài khoảnh khắc của mình">
-        <p class="mini">Một vài khoảnh khắc</p>
-        <div class="moments-track"><div class="moments-set"><img src="images/moment-1.jpg" alt="Ảnh mình mặc áo dài đỏ, tạo hình trái tim bằng hai tay" loading="lazy"><img src="images/moment-2.jpg" alt="Ảnh tự chụp của mình với nón lá" loading="lazy"><img src="images/moment-3.jpg" alt="Ảnh mình đội nón lá bên bờ sông, phía sau là cây cầu" loading="lazy"><img src="images/moment-4.jpg" alt="Ảnh mình đội nón lá trước một công trình cổ" loading="lazy"></div><div class="moments-set" aria-hidden="true"><img src="images/moment-1.jpg" alt="" loading="lazy"><img src="images/moment-2.jpg" alt="" loading="lazy"><img src="images/moment-3.jpg" alt="" loading="lazy"><img src="images/moment-4.jpg" alt="" loading="lazy"></div></div>
-      </div>
-
-      <h3 class="sub">Một số dự án dựng video của mình</h3>
+      <h3 data-i18n="55" class="sub">Một số dự án dựng video của mình</h3>
       <div class="gallery">
         <figure>
           <a href="images/capcut-nnn.jpg" target="_blank" rel="noopener noreferrer"><img class="pol" src="images/capcut-nnn.jpg" alt="Dự án dựng video NNN trong CapCut" loading="lazy"></a>
-          <figcaption>Dự án “NNN” — dựng nhiều lớp hình, phụ đề và nhạc nền</figcaption>
+          <figcaption data-i18n="56">Dự án “NNN” — dựng nhiều lớp hình, phụ đề và nhạc nền</figcaption>
         </figure>
         <figure>
           <a href="images/capcut-botsamsoi.jpg" target="_blank" rel="noopener noreferrer"><img class="pol" src="images/capcut-botsamsoi.jpg" alt="Dự án dựng video Bột sắm soi trong CapCut" loading="lazy"></a>
-          <figcaption>Dự án “Bột sắm soi” — chèn ảnh, hiệu ứng đặc biệt và dòng chữ chạy theo lời</figcaption>
+          <figcaption data-i18n="57">Dự án “Bột sắm soi” — chèn ảnh, hiệu ứng đặc biệt và dòng chữ chạy theo lời</figcaption>
         </figure>
         <figure>
           <a href="images/capcut-mtb.jpg" target="_blank" rel="noopener noreferrer"><img class="pol" src="images/capcut-mtb.jpg" alt="Dự án dựng video MTB trong CapCut" loading="lazy"></a>
-          <figcaption>Dự án “MTB_” — ghép nhân vật hoạt hình, tư liệu phim và chỉnh tốc độ</figcaption>
+          <figcaption data-i18n="58">Dự án “MTB_” — ghép nhân vật hoạt hình, tư liệu phim và chỉnh tốc độ</figcaption>
         </figure>
       </div>
 
       <div class="me-cols">
         <div>
-          <h3 class="sub">Khi làm việc nhóm</h3>
-          <p>Trước đây mình thích làm một mình. Từ khi làm việc cùng các bạn trong nhóm, mình muốn làm chung nhiều hơn để học hỏi thêm.</p>
-          <p>Trong nhóm mình thường <strong>code, kiểm thử sản phẩm, vẽ ERD và thuyết trình</strong>.</p>
-          <p>Điều mình đang cải thiện: hay đến hạn mới nộp bài nhóm.</p>
+          <h3 data-i18n="59" class="sub">Khi làm việc nhóm</h3>
+          <p data-i18n="60">Trước đây mình thích làm một mình. Từ khi làm việc cùng các bạn trong nhóm, mình muốn làm chung nhiều hơn để học hỏi thêm.</p>
+          <p data-i18n="61">Trong nhóm mình thường <strong>code, kiểm thử sản phẩm, vẽ ERD và thuyết trình</strong>.</p>
+          <p data-i18n="62">Điều mình đang cải thiện: hay đến hạn mới nộp bài nhóm.</p>
         </div>
         <div>
-          <h3 class="sub">Điều mình coi trọng</h3>
-          <p>Hiểu được bản chất của vấn đề, và làm sản phẩm từ những thứ mình yêu thích.</p>
-          <p>Môn học yêu thích nhất của mình là <strong>Machine Learning</strong> và <strong>Deep Learning</strong>.</p>
+          <h3 data-i18n="63" class="sub">Điều mình coi trọng</h3>
+          <p data-i18n="64">Hiểu được bản chất của vấn đề, và làm sản phẩm từ những thứ mình yêu thích.</p>
+          <p data-i18n="65">Môn học yêu thích nhất của mình là <strong>Machine Learning</strong> và <strong>Deep Learning</strong>.</p>
         </div>
       </div>
 
@@ -201,217 +289,85 @@
     <!-- HÀNH TRÌNH -->
     <section class="journey-stage" id="journey">
       <div class="journey-bg" data-static aria-hidden="true"><div class="journey-bg-img"></div></div>
-      <h2 data-eyebrow="Từ C++ đến NLP">Hành trình.<svg class="star burst"><use href="#star"/></svg><span class="rule"></span></h2>
-      <p class="me-lead">Từ dòng code đầu tiên đến những gì mình muốn làm tiếp theo.</p>
+      <h2 data-i18nt="66" data-eyebrow="Từ C++ đến NLP">Hành trình.<svg class="star burst"><use href="#star"/></svg><span class="rule"></span></h2>
+      <p data-i18n="67" class="me-lead">Từ dòng code đầu tiên đến những gì mình muốn làm tiếp theo.</p>
       <ol class="journey">
-        <li data-phase="past"><b data-tag="Đã qua">Sau kỳ thi đại học</b> Mình tự học lập trình C++ trên CodeLearn.</li>
-        <li data-phase="past"><b data-tag="Đã qua">Chọn ngành</b> Mình chọn Công nghệ thông tin vì nghĩ ngành này liên quan đến toán học. Khi học các thuật toán và mô hình machine learning, mình thấy thật sự thích.</li>
-        <li data-phase="now"><b data-tag="Đang diễn ra">Hiện tại</b> Mình đang học NLP, Transformers và LLM trên Hugging Face, và đang tích cực tham gia nghiên cứu khoa học của trường cùng với cuộc thi SemEval 2027.</li>
-        <li data-phase="next"><b data-tag="Sắp tới">Cuối năm 3</b> Mình dự định xin đi thực tập.</li>
-        <li data-phase="next"><b data-tag="Sắp tới">Sau khi tốt nghiệp</b> Mình sẽ cố gắng học thạc sĩ ngành Khoa học máy tính tại UIT và xin làm ở phòng lab của trường, hoặc ứng tuyển vị trí AI Engineer ở công ty.</li>
-        <li data-phase="next"><b data-tag="Mong muốn">Xa hơn</b> Mình mong một ngày trở thành giảng viên, để truyền lại những gì mình đã học về máy học và xử lý ngôn ngữ.</li>
+        <li data-i18n="68" data-phase="past"><b data-tag="Đã qua">Sau kỳ thi đại học</b> Mình tự học lập trình C++ trên CodeLearn.</li>
+        <li data-i18n="69" data-phase="past"><b data-tag="Đã qua">Chọn ngành</b> Mình chọn Công nghệ thông tin vì nghĩ ngành này liên quan đến toán học. Khi học các thuật toán và mô hình machine learning, mình thấy thật sự thích.</li>
+        <li data-i18n="70" data-phase="now"><b data-tag="Đang diễn ra">Hiện tại</b> Mình đang học NLP, Transformers và LLM trên Hugging Face, và đang tích cực tham gia nghiên cứu khoa học của trường cùng với cuộc thi SemEval 2027.</li>
+        <li data-i18n="71" data-phase="next"><b data-tag="Sắp tới">Cuối năm 3</b> Mình dự định xin đi thực tập.</li>
+        <li data-i18n="72" data-phase="next"><b data-tag="Sắp tới">Sau khi tốt nghiệp</b> Mình sẽ cố gắng học thạc sĩ ngành Khoa học máy tính tại UIT và xin làm ở phòng lab của trường, hoặc ứng tuyển vị trí AI Engineer ở công ty.</li>
+        <li data-i18n="73" data-phase="next"><b data-tag="Mong muốn">Xa hơn</b> Mình mong một ngày trở thành giảng viên, để truyền lại những gì mình đã học về máy học và xử lý ngôn ngữ.</li>
       </ol>
     </section>
 
     <!-- DỰ ÁN -->
     <section class="projects" id="projects">
-      <h2 data-eyebrow="Những gì mình đã làm">Dự án.<svg class="star burst"><use href="#star"/></svg><span class="rule"></span></h2>
+      <h2 data-i18nt="74" data-eyebrow="Những gì mình đã làm">Dự án.<svg class="star burst"><use href="#star"></use></svg><span class="rule"></span></h2>
+      <p data-i18n="75" class="proj-lead">Kéo, vuốt hoặc dùng phím ← → để xem từng dự án. Bấm “Chi tiết” để đọc phần mình đã làm.</p>
 
-      <div class="tabbar">
-        <button class="arrow" id="tab-prev" type="button" aria-label="Dự án trước">‹</button>
-        <div class="tabs" role="tablist" aria-label="Danh sách dự án">
-          <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true"><span>01</span> Bookary</button>
-          <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1"><span>02</span> Điểm danh sinh viên</button>
-          <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1"><span>03</span> Steganography</button>
-          <button class="tab" role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1"><span>04</span> SemEval 2027</button>
-          <button class="tab" role="tab" id="t5" aria-controls="p5" aria-selected="false" tabindex="-1"><span>05</span> UTH Python</button>
-          <button class="tab" role="tab" id="t6" aria-controls="p6" aria-selected="false" tabindex="-1"><span>06</span> Python Programming</button>
-        </div>
-        <button class="arrow" id="tab-next" type="button" aria-label="Dự án sau">›</button>
+      <div class="carousel" id="proj-carousel" data-noscale tabindex="0" role="region" aria-roledescription="carousel" aria-label="Danh sách dự án">
+        <article class="pcard" data-i="0" aria-roledescription="slide" aria-label="1 / 6: Bookary – Hệ thống quản lý thư viện">
+          <span class="pc-num">01</span>
+          <div class="pc-cover"><img src="images/library-dashboard.jpg" alt="Giao diện dashboard quản trị viên của Bookary" loading="lazy" draggable="false"></div>
+          <h3 data-i18n="76">Bookary – Hệ thống quản lý thư viện</h3>
+          <p data-i18n="77" class="pc-kind">Phân tích thiết kế · Nhóm 2</p>
+          <p data-i18n="78" class="pc-desc">Hệ thống cho thư viện có ba vai trò: độc giả, thủ thư, quản trị viên. Gồm đăng ký và cấp thẻ, mượn – trả – gia hạn, xử lý mất sách, mở khóa thẻ có phê duyệt hai cấp và báo cáo tồn kho.</p>
+          <ul class="pc-tags"><li data-i18n="79">Python</li><li data-i18n="80">TypeScript</li><li data-i18n="81">Tailwind CSS</li><li data-i18n="82">PostgreSQL / Supabase</li><li data-i18n="83">UML</li><li data-i18n="84">ERD</li></ul>
+          <div class="pc-links"><button data-i18n="85" class="pill more" type="button" data-open="p1">Chi tiết</button><a data-i18n="86" class="pill" href="https://library-management-system-six-kohl.vercel.app" target="_blank" rel="noopener noreferrer">Xem demo</a><a data-i18n="87" class="pill outline" href="https://github.com/hoanhh4977/library-management-system" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </article>
+        <article class="pcard" data-i="1" aria-roledescription="slide" aria-label="2 / 6: Student Attendance Management System">
+          <span class="pc-num">02</span>
+          <div class="pc-cover"><img src="images/attendance.jpg" alt="Mẫu giao diện đăng nhập hệ thống điểm danh sinh viên" loading="lazy" draggable="false"><span data-i18n="88" class="pc-badge">Ảnh minh họa</span></div>
+          <h3 data-i18n="89">Student Attendance Management System</h3>
+          <p data-i18n="90" class="pc-kind">Công nghệ phần mềm · Trưởng nhóm</p>
+          <p data-i18n="91" class="pc-desc">Hệ thống quản lý điểm danh sinh viên, làm việc nhóm theo quy trình phần mềm: có tài liệu đặc tả yêu cầu và thiết kế, tài liệu kiểm thử.</p>
+          <ul class="pc-tags"><li data-i18n="92">Python</li><li data-i18n="93">pytest</li><li data-i18n="94">Docker</li></ul>
+          <div class="pc-links"><button data-i18n="95" class="pill more" type="button" data-open="p2">Chi tiết</button><a data-i18n="96" class="pill outline" href="https://github.com/hoanhh4977/CNPM_Group04" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </article>
+        <article class="pcard" data-i="2" aria-roledescription="slide" aria-label="3 / 6: ATTT Steganography">
+          <span class="pc-num">03</span>
+          <div class="pc-cover"><img src="images/steganography.jpg" alt="Giao diện minh họa chức năng giấu tin và trích xuất tin trong ảnh" loading="lazy" draggable="false"><span data-i18n="97" class="pc-badge">Ảnh minh họa</span></div>
+          <h3 data-i18n="98">ATTT Steganography</h3>
+          <p data-i18n="99" class="pc-kind">An toàn thông tin · Cá nhân</p>
+          <p data-i18n="100" class="pc-desc">Công cụ web giấu tin trong ảnh và âm thanh, kèm chức năng phát hiện ảnh có chứa tin giấu. Thuật toán LSB được tự cài đặt, thông điệp được mã hóa trước khi giấu.</p>
+          <ul class="pc-tags"><li data-i18n="101">Python</li><li data-i18n="102">FastAPI</li><li data-i18n="103">NumPy</li><li data-i18n="104">AES / PBKDF2</li><li data-i18n="105">Steganalysis</li><li data-i18n="106">JavaScript</li></ul>
+          <div class="pc-links"><button data-i18n="107" class="pill more" type="button" data-open="p3">Chi tiết</button><a data-i18n="108" class="pill outline" href="https://github.com/hoanhh4977/ATTT_Steganography" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </article>
+        <article class="pcard" data-i="3" aria-roledescription="slide" aria-label="4 / 6: SemEval 2027 – Task 8: StereoQueerEval">
+          <span class="pc-num">04</span>
+          <div class="pc-cover"><img src="images/semeval.jpg" alt="Trang chủ chính thức của SemEval-2027" loading="lazy" draggable="false"><span data-i18n="109" class="pc-badge">Ảnh minh họa</span></div>
+          <h3 data-i18n="110">SemEval 2027 – Task 8: StereoQueerEval</h3>
+          <p data-i18n="111" class="pc-kind">Nghiên cứu khoa học · Đang thực hiện</p>
+          <p data-i18n="112" class="pc-desc">SemEval-2027 là hội thảo quốc tế lần thứ 21 về Semantic Evaluation (đánh giá ngữ nghĩa), tổ chức cùng ACL 2027 tại Kyoto, Nhật Bản, ngày 17–22/8/2027. Mình đang làm Task 8 (StereoQueerEval): nhận diện định kiến và ngôn từ thù ghét nhắm vào cộng đồng LGBTQIA+ trong bình luận. Dự án đang trong quá trình thực hiện.</p>
+          <ul class="pc-tags"><li data-i18n="113">NLP</li><li data-i18n="114">Phân loại văn bản</li><li data-i18n="115">TF-IDF · SVM</li><li data-i18n="116">BERT</li><li data-i18n="117">T5</li><li data-i18n="118">Hugging Face</li></ul>
+          <div class="pc-links"><button data-i18n="119" class="pill more" type="button" data-open="p4">Chi tiết</button><a data-i18n="120" class="pill outline" href="https://github.com/hoanhh4977/SemEval2027" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </article>
+        <article class="pcard" data-i="4" aria-roledescription="slide" aria-label="5 / 6: UTH Python – Cuối kỳ">
+          <span class="pc-num">05</span>
+          <div class="pc-cover"><img src="images/python.jpg" alt="Logo Python" loading="lazy" draggable="false"></div>
+          <h3 data-i18n="121">UTH Python – Cuối kỳ</h3>
+          <p data-i18n="122" class="pc-kind">Bài cuối kỳ Python · Nhóm</p>
+          <p data-i18n="123" class="pc-desc">Bài cuối kỳ gồm xử lý dữ liệu, tạo cơ sở dữ liệu và bài toán hồi quy tuyến tính, có hướng dẫn cài đặt và chạy.</p>
+          <ul class="pc-tags"><li data-i18n="124">Python</li><li data-i18n="125">Hồi quy tuyến tính</li><li data-i18n="126">Jupyter Notebook</li></ul>
+          <div class="pc-links"><button data-i18n="127" class="pill more" type="button" data-open="p5">Chi tiết</button><a data-i18n="128" class="pill outline" href="https://github.com/hoanhh4977/UTH_Python_CK" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </article>
+        <article class="pcard" data-i="5" aria-roledescription="slide" aria-label="6 / 6: Python Programming">
+          <span class="pc-num">06</span>
+          <div class="pc-cover"><img src="images/python-code.jpg" alt="Logo Python trên nền mã nguồn Python" loading="lazy" draggable="false"></div>
+          <h3 data-i18n="129">Python Programming</h3>
+          <p data-i18n="130" class="pc-kind">Bài tập Python · Cá nhân</p>
+          <p data-i18n="131" class="pc-desc">Tập hợp bài tập theo từng buổi học Python, kèm dữ liệu mẫu dạng CSV và JSON.</p>
+          <ul class="pc-tags"><li data-i18n="132">Python</li><li data-i18n="133">Jupyter Notebook</li><li data-i18n="134">CSV / JSON</li></ul>
+          <div class="pc-links"><button data-i18n="135" class="pill more" type="button" data-open="p6">Chi tiết</button><a data-i18n="136" class="pill outline" href="https://github.com/hoanhh4977/Python_Programming" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </article>
       </div>
-
-      <!-- 01 -->
-      <article class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
-        <img class="shot" src="images/library-dashboard.jpg" alt="Giao diện dashboard quản trị viên của Bookary" loading="lazy">
-        <div class="info">
-          <p class="kind">Môn Phân tích thiết kế hệ thống · Nhóm 2 (6 thành viên)</p>
-          <h3>Bookary – Hệ thống quản lý thư viện</h3>
-          <p>Hệ thống cho thư viện có ba vai trò: độc giả, thủ thư, quản trị viên. Gồm đăng ký và cấp thẻ, mượn – trả – gia hạn, xử lý mất sách, mở khóa thẻ có phê duyệt hai cấp và báo cáo tồn kho.</p>
-          <h4>Điểm nổi bật</h4>
-          <ul class="points">
-            <li>Phần phân tích thiết kế đầy đủ: Context Diagram, Diagram 0, từ điển dữ liệu, ERD và 4 sơ đồ UML.</li>
-            <li>Bản cài đặt gồm backend Python (có migration cơ sở dữ liệu và kiểm thử) và frontend TypeScript dùng Vite, Tailwind CSS, kiểm thử bằng Playwright.</li>
-            <li>Đã triển khai bản demo trực tuyến trên Vercel.</li>
-          </ul>
-          <ul class="tags"><li>Python</li><li>TypeScript</li><li>Tailwind CSS</li><li>PostgreSQL / Supabase</li><li>UML</li><li>ERD</li></ul>
-          <div class="links">
-            <button class="pill more" type="button" aria-expanded="false" aria-controls="d1">Chi tiết ▾</button>
-            <a class="pill" href="https://library-management-system-six-kohl.vercel.app" target="_blank" rel="noopener noreferrer">Xem demo</a>
-            <a class="pill outline" href="https://github.com/hoanhh4977/library-management-system" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-          <div class="detail" id="d1" hidden>
-            <h4>Mình đã làm</h4>
-            <ul class="points">
-              <li>Vẽ sơ đồ thực thể kết hợp (ERD) cho hệ thống ở giai đoạn phân tích thiết kế.</li>
-              <li>Lập trình toàn bộ phần web của hệ thống: backend (Python), frontend (TypeScript, Vite, Tailwind CSS), kiểm thử và đưa bản demo lên Vercel.</li>
-              <li>Phát triển với sự hỗ trợ của công cụ AI (Claude Code và Spec Kit): chuyển tài liệu phân tích thiết kế của nhóm thành đặc tả, rồi hiện thực hóa thành ứng dụng chạy được.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- 02 -->
-      <article class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
-        <figure class="figure">
-          <img class="shot sq" src="images/attendance.jpg" alt="Mẫu giao diện đăng nhập hệ thống điểm danh sinh viên" loading="lazy">
-          <figcaption>Ảnh minh họa giao diện (mẫu thiết kế tham khảo)</figcaption>
-        </figure>
-        <div class="info">
-          <p class="kind">Môn Công nghệ phần mềm · Nhóm 4</p>
-          <h3>Student Attendance Management System</h3>
-          <p>Hệ thống quản lý điểm danh sinh viên, làm việc nhóm theo quy trình phần mềm: có tài liệu đặc tả yêu cầu và thiết kế, tài liệu kiểm thử.</p>
-          <h4>Điểm nổi bật</h4>
-          <ul class="points">
-            <li>Mã nguồn chia lớp rõ ràng: services, storage, ui và utils.</li>
-            <li>Bộ kiểm thử pytest gồm kiểm thử đơn vị, repository và tích hợp.</li>
-            <li>Đóng gói bằng Docker và docker-compose.</li>
-          </ul>
-          <ul class="tags"><li>Python</li><li>pytest</li><li>Docker</li></ul>
-          <div class="links">
-            <button class="pill more" type="button" aria-expanded="false" aria-controls="d2">Chi tiết ▾</button>
-            <a class="pill outline" href="https://github.com/hoanhh4977/CNPM_Group04" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-          <div class="detail" id="d2" hidden>
-            <h4>Mình đã làm</h4>
-            <ul class="points">
-              <li>Làm trưởng nhóm của dự án.</li>
-              <li>Sửa lỗi (bug) giúp các thành viên trong nhóm.</li>
-              <li>Lập trình các chức năng cơ bản của hệ thống.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- 03 -->
-      <article class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
-        <figure class="figure">
-          <img class="shot ref" src="images/steganography.jpg" alt="Giao diện minh họa chức năng giấu tin và trích xuất tin trong ảnh" loading="lazy">
-          <figcaption>Ảnh minh họa chức năng giấu tin (ứng dụng mẫu tham khảo)</figcaption>
-        </figure>
-        <div class="info">
-          <p class="kind">Môn An toàn thông tin · Cá nhân</p>
-          <h3>ATTT Steganography</h3>
-          <p>Công cụ web giấu tin trong ảnh và âm thanh, kèm chức năng phát hiện ảnh có chứa tin giấu. Thuật toán LSB được tự cài đặt, thông điệp được mã hóa trước khi giấu.</p>
-          <h4>Điểm nổi bật</h4>
-          <ul class="points">
-            <li>Ba chức năng: giấu tin (Embed), lấy tin (Extract) và phân tích phát hiện tin giấu (Analyze).</li>
-            <li>Bảo mật thông điệp bằng AES-128 CBC, khóa sinh từ mật khẩu.</li>
-            <li>Phát hiện tin giấu bằng RS Analysis, SPA và Chi-squared.</li>
-          </ul>
-          <ul class="tags"><li>Python</li><li>FastAPI</li><li>NumPy</li><li>AES / PBKDF2</li><li>Steganalysis</li><li>JavaScript</li></ul>
-          <div class="links">
-            <button class="pill more" type="button" aria-expanded="false" aria-controls="d3">Chi tiết ▾</button>
-            <a class="pill outline" href="https://github.com/hoanhh4977/ATTT_Steganography" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-          <div class="detail" id="d3" hidden>
-            <h4>Mình đã làm</h4>
-            <ul class="points">
-              <li>Dự án cá nhân: tự thiết kế và lập trình toàn bộ.</li>
-              <li>Tự cài đặt thuật toán giấu tin LSB bằng numpy: có chế độ nhúng tuần tự và nhúng phân tán theo khóa ngẫu nhiên.</li>
-              <li>Mã hóa thông điệp bằng AES-128 chế độ CBC, khóa sinh từ mật khẩu qua PBKDF2-HMAC-SHA256.</li>
-              <li>Đo chất lượng ảnh sau khi giấu tin bằng PSNR và tính dung lượng tối đa có thể giấu.</li>
-              <li>Xây dựng phần phát hiện tin giấu (steganalysis) bằng ba kỹ thuật: RS Analysis, Sample Pair Analysis và kiểm định Chi-squared.</li>
-              <li>Mở rộng giấu tin sang âm thanh WAV, ngoài ảnh.</li>
-              <li>Dựng API bằng FastAPI, giao diện web bằng JavaScript thuần với 3 tab Embed, Extract, Analyze, và viết kiểm thử bằng pytest.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- 04 -->
-      <article class="panel" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
-        <figure class="figure">
-          <img class="shot ref" src="images/semeval.jpg" alt="Trang chủ chính thức của SemEval-2027" loading="lazy">
-          <figcaption>Trang chủ SemEval-2027 (ảnh chụp từ trang chính thức của cuộc thi)</figcaption>
-        </figure>
-        <div class="info">
-          <p class="kind">Nghiên cứu khoa học của trường · Cuộc thi SemEval 2027 · Đang thực hiện</p>
-          <h3>SemEval 2027 – Task 8: StereoQueerEval</h3>
-          <p>SemEval-2027 là hội thảo quốc tế lần thứ 21 về Semantic Evaluation (đánh giá ngữ nghĩa), tổ chức cùng ACL 2027 tại Kyoto, Nhật Bản, ngày 17–22/8/2027. Mình đang làm Task 8 (StereoQueerEval): nhận diện định kiến và ngôn từ thù ghét nhắm vào cộng đồng LGBTQIA+ trong bình luận. Dự án đang trong quá trình thực hiện.</p>
-          <h4>Điểm nổi bật</h4>
-          <ul class="points">
-            <li>Ba bài toán con: (A) phát hiện định kiến, (B) phân loại ngôn từ thù ghét (không / ngầm / trực tiếp), (C) xác định đối tượng bị nhắm tới (nhiều nhãn).</li>
-            <li>So sánh bốn hướng tiếp cận: TF-IDF + SVM, embedding + SVM, tinh chỉnh BERT và tinh chỉnh T5.</li>
-            <li>Kết quả ban đầu của baseline TF-IDF + SVM trên tiếng Anh: độ chính xác khoảng 0,70 ở bài toán A và 0,57 ở bài toán B.</li>
-          </ul>
-          <ul class="tags"><li>NLP</li><li>Phân loại văn bản</li><li>TF-IDF · SVM</li><li>BERT</li><li>T5</li><li>Hugging Face</li></ul>
-          <div class="links">
-            <button class="pill more" type="button" aria-expanded="false" aria-controls="d4">Chi tiết ▾</button>
-            <a class="pill outline" href="https://github.com/hoanhh4977/SemEval2027" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-          <div class="detail" id="d4" hidden>
-            <h4>Mình đã làm</h4>
-            <ul class="points">
-              <li>Đang làm Task 8 của SemEval 2027, dự án chưa hoàn thành.</li>
-              <li>Viết các notebook thử nghiệm cho cả ba bài toán con A, B, C trên dữ liệu tiếng Anh.</li>
-              <li>Dùng chung một hàm huấn luyện và đánh giá cho cả ba bài toán, thay vì viết lại ba lần.</li>
-              <li>Thử TF-IDF + SVM và embedding (Bag-of-Words, fastText) + SVM làm mốc so sánh.</li>
-              <li>Tinh chỉnh BERT với đầu phân loại, và tinh chỉnh T5 theo hướng coi bài toán là sinh văn bản.</li>
-              <li>Chia tập huấn luyện và kiểm tra một lần, dùng lại cho mọi phương pháp để so sánh công bằng.</li>
-              <li>Bước tiếp theo: mở rộng sang các ngôn ngữ khác của task và chạy các mô hình Transformer.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- 05 -->
-      <article class="panel" role="tabpanel" id="p5" aria-labelledby="t5" hidden>
-        <img class="shot logo-img" src="images/python.jpg" alt="Logo Python" loading="lazy">
-        <div class="info">
-          <p class="kind">Bài cuối kỳ môn Python · Làm việc nhóm</p>
-          <h3>UTH Python – Cuối kỳ</h3>
-          <p>Bài cuối kỳ gồm xử lý dữ liệu, tạo cơ sở dữ liệu và bài toán hồi quy tuyến tính, có hướng dẫn cài đặt và chạy.</p>
-          <h4>Điểm nổi bật</h4>
-          <ul class="points">
-            <li>Làm việc với dữ liệu giá nhà và dữ liệu hồi quy tuyến tính, lưu vào cơ sở dữ liệu.</li>
-            <li>Mã nguồn chia module: app, gpt, prompt, utils.</li>
-          </ul>
-          <ul class="tags"><li>Python</li><li>Hồi quy tuyến tính</li><li>Jupyter Notebook</li></ul>
-          <div class="links">
-            <button class="pill more" type="button" aria-expanded="false" aria-controls="d5">Chi tiết ▾</button>
-            <a class="pill outline" href="https://github.com/hoanhh4977/UTH_Python_CK" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-          <div class="detail" id="d5" hidden>
-            <h4>Mình đã làm</h4>
-            <ul class="points">
-              <li>Dùng Python để làm bài cuối kỳ gồm xử lý dữ liệu, tạo cơ sở dữ liệu và bài toán hồi quy tuyến tính.</li>
-              <li>Đây là bài giúp mình củng cố kiến thức lập trình Python đã học trong môn.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- 06 -->
-      <article class="panel" role="tabpanel" id="p6" aria-labelledby="t6" hidden>
-        <img class="shot" src="images/python-code.jpg" alt="Logo Python trên nền mã nguồn Python" loading="lazy" style="object-position:center">
-        <div class="info">
-          <p class="kind">Môn Ngôn ngữ lập trình Python · Cá nhân</p>
-          <h3>Python Programming</h3>
-          <p>Tập hợp bài tập theo từng buổi học Python, kèm dữ liệu mẫu dạng CSV và JSON.</p>
-          <ul class="tags"><li>Python</li><li>Jupyter Notebook</li><li>CSV / JSON</li></ul>
-          <div class="links">
-            <button class="pill more" type="button" aria-expanded="false" aria-controls="d6">Chi tiết ▾</button>
-            <a class="pill outline" href="https://github.com/hoanhh4977/Python_Programming" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-          <div class="detail" id="d6" hidden>
-            <h4>Mình đã làm</h4>
-            <ul class="points">
-              <li>Học lập trình Python và làm bài tập theo từng buổi của môn Ngôn ngữ lập trình Python.</li>
-              <li>Thực hành làm việc với dữ liệu mẫu dạng CSV và JSON.</li>
-            </ul>
-          </div>
-        </div>
-      </article>
+      <div class="car-nav">
+        <button class="arrow" id="car-prev" type="button" aria-label="Dự án trước">‹</button>
+        <span class="car-dots" id="car-dots" role="tablist" aria-label="Chọn dự án"></span>
+        <span class="car-count" id="car-count" aria-live="polite">1 / 6</span>
+        <button class="arrow" id="car-next" type="button" aria-label="Dự án sau">›</button>
+      </div>
     </section>
 
     <!-- KỸ NĂNG -->
@@ -421,49 +377,49 @@
         <img class="pol s2" src="images/library-dashboard.jpg" alt="Giao diện Bookary" loading="lazy">
       </div>
       <div class="skills-body">
-        <h2 data-eyebrow="Công cụ">Kỹ năng.<span class="rule"></span></h2>
+        <h2 data-i18nt="137" data-eyebrow="Công cụ">Kỹ năng.<span class="rule"></span></h2>
         <ul class="pills">
-          <li class="filled">HTML <svg class="star"><use href="#star"/></svg></li>
-          <li>CSS <svg class="star"><use href="#star"/></svg></li>
-          <li>Java <svg class="star"><use href="#star"/></svg></li>
-          <li class="filled">Python <svg class="star"><use href="#star"/></svg></li>
-          <li class="filled">OOP <svg class="star"><use href="#star"/></svg></li>
-          <li>FastAPI <svg class="star"><use href="#star"/></svg></li>
-          <li>NLP <svg class="star"><use href="#star"/></svg></li>
-          <li class="filled">Transformer <svg class="star"><use href="#star"/></svg></li>
-          <li>Thuyết trình <svg class="star"><use href="#star"/></svg></li>
-          <li>Biên tập video <svg class="star"><use href="#star"/></svg></li>
+          <li data-i18nt="138" class="filled">HTML <svg class="star"><use href="#star"/></svg></li>
+          <li data-i18nt="139">CSS <svg class="star"><use href="#star"/></svg></li>
+          <li data-i18nt="140">Java <svg class="star"><use href="#star"/></svg></li>
+          <li data-i18nt="141" class="filled">Python <svg class="star"><use href="#star"/></svg></li>
+          <li data-i18nt="142" class="filled">OOP <svg class="star"><use href="#star"/></svg></li>
+          <li data-i18nt="143">FastAPI <svg class="star"><use href="#star"/></svg></li>
+          <li data-i18nt="144">NLP <svg class="star"><use href="#star"/></svg></li>
+          <li data-i18nt="145" class="filled">Transformer <svg class="star"><use href="#star"/></svg></li>
+          <li data-i18nt="146">Thuyết trình <svg class="star"><use href="#star"/></svg></li>
+          <li data-i18nt="147">Biên tập video <svg class="star"><use href="#star"/></svg></li>
         </ul>
-        <p class="note">Đang học NLP, Transformers và LLM trên Hugging Face; nền tảng lập trình hướng đối tượng với Java và Python.</p>
+        <p data-i18n="148" class="note">Đang học NLP, Transformers và LLM trên Hugging Face; nền tảng lập trình hướng đối tượng với Java và Python.</p>
       </div>
     </section>
 
     <!-- LIÊN HỆ -->
     <section class="contact" id="contact">
-      <h2 data-eyebrow="Trò chuyện">Liên hệ.<svg class="star burst"><use href="#star"/></svg></h2>
-      <p class="contact-lead">Liên hệ với mình qua email, Zalo, Facebook hoặc xem mã nguồn trên GitHub.</p>
+      <h2 data-i18nt="149" data-eyebrow="Trò chuyện">Liên hệ.<svg class="star burst"><use href="#star"/></svg></h2>
+      <p data-i18n="150" class="contact-lead">Liên hệ với mình qua email, Zalo, Facebook hoặc xem mã nguồn trên GitHub.</p>
       <dl class="contact-info">
-        <div><dt>Email</dt><dd><a href="mailto:hoanhhbmt49@gmail.com">hoanhhbmt49@gmail.com</a></dd></div>
-        <div><dt>Zalo</dt><dd><a href="https://zalo.me/0988449850" target="_blank" rel="noopener noreferrer">0988 449 850</a></dd></div>
+        <div><dt data-i18n="151">Email</dt><dd><a data-i18n="152" href="mailto:hoanhhbmt49@gmail.com">hoanhhbmt49@gmail.com</a></dd></div>
+        <div><dt data-i18n="153">Zalo</dt><dd><a href="https://zalo.me/0988449850" target="_blank" rel="noopener noreferrer">0988 449 850</a></dd></div>
       </dl>
       <div class="actions">
-        <a class="pill light" href="mailto:hoanhhbmt49@gmail.com">
+        <a data-i18nt="154" class="pill light" href="mailto:hoanhhbmt49@gmail.com">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
           Gmail
         </a>
-        <a class="pill light" href="https://zalo.me/0988449850" target="_blank" rel="noopener noreferrer">
+        <a data-i18nt="155" class="pill light" href="https://zalo.me/0988449850" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L3 21l2-5.2A8 8 0 1 1 21 12z"/></svg>
           Zalo
         </a>
-        <a class="pill light" href="https://www.facebook.com/share/1CCCfhLKJk/" target="_blank" rel="noopener noreferrer">
+        <a data-i18nt="156" class="pill light" href="https://www.facebook.com/share/1CCCfhLKJk/" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.88v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
           Facebook
         </a>
-        <a class="pill light" href="https://github.com/hoanhh4977" target="_blank" rel="noopener noreferrer">
+        <a data-i18nt="157" class="pill light" href="https://github.com/hoanhh4977" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
           GitHub
         </a>
-        <a class="pill light" href="https://www.tiktok.com/@domdidemne" target="_blank" rel="noopener noreferrer">
+        <a data-i18nt="158" class="pill light" href="https://www.tiktok.com/@domdidemne" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M19.6 6.7a5.4 5.4 0 0 1-3.3-1.7 5.4 5.4 0 0 1-1.3-3H11v13.2a2.6 2.6 0 1 1-1.8-2.5V9.3a6.2 6.2 0 1 0 5.4 6.2V9.1a9 9 0 0 0 5 1.6z"/></svg>
           TikTok
         </a>
@@ -472,54 +428,141 @@
   </main>
 
   <footer>© 2026 Nguyễn Hoàng Anh</footer>
-  <script>
-    (function () {
-      var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
-      var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
-      var bar = document.querySelector('.tabs');
-      var cur = 0;
-      function show(i, focus) {
-        cur = (i + tabs.length) % tabs.length;
-        tabs.forEach(function (t, k) {
-          var on = k === cur;
-          t.setAttribute('aria-selected', on);
-          t.tabIndex = on ? 0 : -1;
-          panels[k].hidden = !on;
-        });
-        tabs[cur].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-        if (focus) tabs[cur].focus();
-      }
-      tabs.forEach(function (t, k) {
-        t.addEventListener('click', function () { show(k); });
-        t.addEventListener('keydown', function (e) {
-          if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1, true); }
-          if (e.key === 'ArrowLeft') { e.preventDefault(); show(cur - 1, true); }
-        });
-      });
-      document.getElementById('tab-prev').addEventListener('click', function () { show(cur - 1); });
-      document.getElementById('tab-next').addEventListener('click', function () { show(cur + 1); });
-      /* nút Chi tiết */
-      document.querySelectorAll('.more').forEach(function (b) {
-        b.addEventListener('click', function () {
-          var d = document.getElementById(b.getAttribute('aria-controls'));
-          var open = b.getAttribute('aria-expanded') === 'true';
-          b.setAttribute('aria-expanded', !open);
-          b.textContent = open ? 'Chi tiết ▾' : 'Thu gọn ▴';
-          d.hidden = open;
-        });
-      });
-      /* vuốt trái/phải trên khung chi tiết */
-      var x0 = null;
-      panels.forEach(function (p) {
-        p.addEventListener('touchstart', function (e) { x0 = e.changedTouches[0].clientX; }, { passive: true });
-        p.addEventListener('touchend', function (e) {
-          if (x0 === null) return;
-          var dx = e.changedTouches[0].clientX - x0; x0 = null;
-          if (Math.abs(dx) > 60) show(cur + (dx < 0 ? 1 : -1));
-        });
-      });
-    })();
-  </script>
+  <dialog id="pdlg" aria-labelledby="pd-title">
+    <button data-i18n="159" class="pd-close" type="button" aria-label="Đóng">×</button>
+    <div class="pd-grid" id="pd-content"></div>
+  </dialog>
+    <template id="tpl-p1">
+      <div class="pd-media"><div class="pd-cover"><img src="images/library-dashboard.jpg" alt="Giao diện dashboard quản trị viên của Bookary" loading="lazy" draggable="false"></div></div>
+      <div class="pd-body">
+        <p data-i18n="160" class="pd-kind">Môn Phân tích thiết kế hệ thống · Nhóm 2 (6 thành viên)</p>
+        <h3 data-i18n="161" id="pd-title">Bookary – Hệ thống quản lý thư viện</h3>
+        <p data-i18n="162" class="pd-desc">Hệ thống cho thư viện có ba vai trò: độc giả, thủ thư, quản trị viên. Gồm đăng ký và cấp thẻ, mượn – trả – gia hạn, xử lý mất sách, mở khóa thẻ có phê duyệt hai cấp và báo cáo tồn kho.</p>
+        <h4 data-i18n="163">Điểm nổi bật</h4><ul class="points">
+<li data-i18n="164">Phần phân tích thiết kế đầy đủ: Context Diagram, Diagram 0, từ điển dữ liệu, ERD và 4 sơ đồ UML.</li>
+<li data-i18n="165">Bản cài đặt gồm backend Python (có migration cơ sở dữ liệu và kiểm thử) và frontend TypeScript dùng Vite, Tailwind CSS, kiểm thử bằng Playwright.</li>
+<li data-i18n="166">Đã triển khai bản demo trực tuyến trên Vercel.</li>
+</ul>
+        <div class="pd-did"><h4 data-i18n="167">Mình đã làm</h4>
+<ul class="points">
+<li data-i18n="168">Vẽ sơ đồ thực thể kết hợp (ERD) cho hệ thống ở giai đoạn phân tích thiết kế.</li>
+<li data-i18n="169">Lập trình toàn bộ phần web của hệ thống: backend (Python), frontend (TypeScript, Vite, Tailwind CSS), kiểm thử và đưa bản demo lên Vercel.</li>
+<li data-i18n="170">Phát triển với sự hỗ trợ của công cụ AI (Claude Code và Spec Kit): chuyển tài liệu phân tích thiết kế của nhóm thành đặc tả, rồi hiện thực hóa thành ứng dụng chạy được.</li>
+</ul></div>
+        <ul class="pc-tags"><li data-i18n="171">Python</li><li data-i18n="172">TypeScript</li><li data-i18n="173">Tailwind CSS</li><li data-i18n="174">PostgreSQL / Supabase</li><li data-i18n="175">UML</li><li data-i18n="176">ERD</li></ul>
+        <div class="pc-links"><a data-i18n="177" class="pill" href="https://library-management-system-six-kohl.vercel.app" target="_blank" rel="noopener noreferrer">Xem demo</a><a data-i18n="178" class="pill outline" href="https://github.com/hoanhh4977/library-management-system" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </div>
+    </template>
+    <template id="tpl-p2">
+      <div class="pd-media"><div class="pd-cover"><img src="images/attendance.jpg" alt="Mẫu giao diện đăng nhập hệ thống điểm danh sinh viên" loading="lazy" draggable="false"><span data-i18n="179" class="pc-badge">Ảnh minh họa</span></div></div>
+      <div class="pd-body">
+        <p data-i18n="180" class="pd-kind">Môn Công nghệ phần mềm · Nhóm 4</p>
+        <h3 data-i18n="181" id="pd-title">Student Attendance Management System</h3>
+        <p data-i18n="182" class="pd-desc">Hệ thống quản lý điểm danh sinh viên, làm việc nhóm theo quy trình phần mềm: có tài liệu đặc tả yêu cầu và thiết kế, tài liệu kiểm thử.</p>
+        <h4 data-i18n="183">Điểm nổi bật</h4><ul class="points">
+<li data-i18n="184">Mã nguồn chia lớp rõ ràng: services, storage, ui và utils.</li>
+<li data-i18n="185">Bộ kiểm thử pytest gồm kiểm thử đơn vị, repository và tích hợp.</li>
+<li data-i18n="186">Đóng gói bằng Docker và docker-compose.</li>
+</ul>
+        <div class="pd-did"><h4 data-i18n="187">Mình đã làm</h4>
+<ul class="points">
+<li data-i18n="188">Làm trưởng nhóm của dự án.</li>
+<li data-i18n="189">Sửa lỗi (bug) giúp các thành viên trong nhóm.</li>
+<li data-i18n="190">Lập trình các chức năng cơ bản của hệ thống.</li>
+</ul></div>
+        <ul class="pc-tags"><li data-i18n="191">Python</li><li data-i18n="192">pytest</li><li data-i18n="193">Docker</li></ul>
+        <div class="pc-links"><a data-i18n="194" class="pill outline" href="https://github.com/hoanhh4977/CNPM_Group04" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </div>
+    </template>
+    <template id="tpl-p3">
+      <div class="pd-media"><div class="pd-cover"><img src="images/steganography.jpg" alt="Giao diện minh họa chức năng giấu tin và trích xuất tin trong ảnh" loading="lazy" draggable="false"><span data-i18n="195" class="pc-badge">Ảnh minh họa</span></div></div>
+      <div class="pd-body">
+        <p data-i18n="196" class="pd-kind">Môn An toàn thông tin · Cá nhân</p>
+        <h3 data-i18n="197" id="pd-title">ATTT Steganography</h3>
+        <p data-i18n="198" class="pd-desc">Công cụ web giấu tin trong ảnh và âm thanh, kèm chức năng phát hiện ảnh có chứa tin giấu. Thuật toán LSB được tự cài đặt, thông điệp được mã hóa trước khi giấu.</p>
+        <h4 data-i18n="199">Điểm nổi bật</h4><ul class="points">
+<li data-i18n="200">Ba chức năng: giấu tin (Embed), lấy tin (Extract) và phân tích phát hiện tin giấu (Analyze).</li>
+<li data-i18n="201">Bảo mật thông điệp bằng AES-128 CBC, khóa sinh từ mật khẩu.</li>
+<li data-i18n="202">Phát hiện tin giấu bằng RS Analysis, SPA và Chi-squared.</li>
+</ul>
+        <div class="pd-did"><h4 data-i18n="203">Mình đã làm</h4>
+<ul class="points">
+<li data-i18n="204">Dự án cá nhân: tự thiết kế và lập trình toàn bộ.</li>
+<li data-i18n="205">Tự cài đặt thuật toán giấu tin LSB bằng numpy: có chế độ nhúng tuần tự và nhúng phân tán theo khóa ngẫu nhiên.</li>
+<li data-i18n="206">Mã hóa thông điệp bằng AES-128 chế độ CBC, khóa sinh từ mật khẩu qua PBKDF2-HMAC-SHA256.</li>
+<li data-i18n="207">Đo chất lượng ảnh sau khi giấu tin bằng PSNR và tính dung lượng tối đa có thể giấu.</li>
+<li data-i18n="208">Xây dựng phần phát hiện tin giấu (steganalysis) bằng ba kỹ thuật: RS Analysis, Sample Pair Analysis và kiểm định Chi-squared.</li>
+<li data-i18n="209">Mở rộng giấu tin sang âm thanh WAV, ngoài ảnh.</li>
+<li data-i18n="210">Dựng API bằng FastAPI, giao diện web bằng JavaScript thuần với 3 tab Embed, Extract, Analyze, và viết kiểm thử bằng pytest.</li>
+</ul></div>
+        <ul class="pc-tags"><li data-i18n="211">Python</li><li data-i18n="212">FastAPI</li><li data-i18n="213">NumPy</li><li data-i18n="214">AES / PBKDF2</li><li data-i18n="215">Steganalysis</li><li data-i18n="216">JavaScript</li></ul>
+        <div class="pc-links"><a data-i18n="217" class="pill outline" href="https://github.com/hoanhh4977/ATTT_Steganography" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </div>
+    </template>
+    <template id="tpl-p4">
+      <div class="pd-media"><div class="pd-cover"><img src="images/semeval.jpg" alt="Trang chủ chính thức của SemEval-2027" loading="lazy" draggable="false"><span data-i18n="218" class="pc-badge">Ảnh minh họa</span></div></div>
+      <div class="pd-body">
+        <p data-i18n="219" class="pd-kind">Nghiên cứu khoa học của trường · Cuộc thi SemEval 2027 · Đang thực hiện</p>
+        <h3 data-i18n="220" id="pd-title">SemEval 2027 – Task 8: StereoQueerEval</h3>
+        <p data-i18n="221" class="pd-desc">SemEval-2027 là hội thảo quốc tế lần thứ 21 về Semantic Evaluation (đánh giá ngữ nghĩa), tổ chức cùng ACL 2027 tại Kyoto, Nhật Bản, ngày 17–22/8/2027. Mình đang làm Task 8 (StereoQueerEval): nhận diện định kiến và ngôn từ thù ghét nhắm vào cộng đồng LGBTQIA+ trong bình luận. Dự án đang trong quá trình thực hiện.</p>
+        <h4 data-i18n="222">Điểm nổi bật</h4><ul class="points">
+<li data-i18n="223">Ba bài toán con: (A) phát hiện định kiến, (B) phân loại ngôn từ thù ghét (không / ngầm / trực tiếp), (C) xác định đối tượng bị nhắm tới (nhiều nhãn).</li>
+<li data-i18n="224">So sánh bốn hướng tiếp cận: TF-IDF + SVM, embedding + SVM, tinh chỉnh BERT và tinh chỉnh T5.</li>
+<li data-i18n="225">Kết quả ban đầu của baseline TF-IDF + SVM trên tiếng Anh: độ chính xác khoảng 0,70 ở bài toán A và 0,57 ở bài toán B.</li>
+</ul>
+        <div class="pd-did"><h4 data-i18n="226">Mình đã làm</h4>
+<ul class="points">
+<li data-i18n="227">Đang làm Task 8 của SemEval 2027, dự án chưa hoàn thành.</li>
+<li data-i18n="228">Viết các notebook thử nghiệm cho cả ba bài toán con A, B, C trên dữ liệu tiếng Anh.</li>
+<li data-i18n="229">Dùng chung một hàm huấn luyện và đánh giá cho cả ba bài toán, thay vì viết lại ba lần.</li>
+<li data-i18n="230">Thử TF-IDF + SVM và embedding (Bag-of-Words, fastText) + SVM làm mốc so sánh.</li>
+<li data-i18n="231">Tinh chỉnh BERT với đầu phân loại, và tinh chỉnh T5 theo hướng coi bài toán là sinh văn bản.</li>
+<li data-i18n="232">Chia tập huấn luyện và kiểm tra một lần, dùng lại cho mọi phương pháp để so sánh công bằng.</li>
+<li data-i18n="233">Bước tiếp theo: mở rộng sang các ngôn ngữ khác của task và chạy các mô hình Transformer.</li>
+</ul></div>
+        <ul class="pc-tags"><li data-i18n="234">NLP</li><li data-i18n="235">Phân loại văn bản</li><li data-i18n="236">TF-IDF · SVM</li><li data-i18n="237">BERT</li><li data-i18n="238">T5</li><li data-i18n="239">Hugging Face</li></ul>
+        <div class="pc-links"><a data-i18n="240" class="pill outline" href="https://github.com/hoanhh4977/SemEval2027" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </div>
+    </template>
+    <template id="tpl-p5">
+      <div class="pd-media"><div class="pd-cover"><img src="images/python.jpg" alt="Logo Python" loading="lazy" draggable="false"></div></div>
+      <div class="pd-body">
+        <p data-i18n="241" class="pd-kind">Bài cuối kỳ môn Python · Làm việc nhóm</p>
+        <h3 data-i18n="242" id="pd-title">UTH Python – Cuối kỳ</h3>
+        <p data-i18n="243" class="pd-desc">Bài cuối kỳ gồm xử lý dữ liệu, tạo cơ sở dữ liệu và bài toán hồi quy tuyến tính, có hướng dẫn cài đặt và chạy.</p>
+        <h4 data-i18n="244">Điểm nổi bật</h4><ul class="points">
+<li data-i18n="245">Làm việc với dữ liệu giá nhà và dữ liệu hồi quy tuyến tính, lưu vào cơ sở dữ liệu.</li>
+<li data-i18n="246">Mã nguồn chia module: app, gpt, prompt, utils.</li>
+</ul>
+        <div class="pd-did"><h4 data-i18n="247">Mình đã làm</h4>
+<ul class="points">
+<li data-i18n="248">Dùng Python để làm bài cuối kỳ gồm xử lý dữ liệu, tạo cơ sở dữ liệu và bài toán hồi quy tuyến tính.</li>
+<li data-i18n="249">Đây là bài giúp mình củng cố kiến thức lập trình Python đã học trong môn.</li>
+</ul></div>
+        <ul class="pc-tags"><li data-i18n="250">Python</li><li data-i18n="251">Hồi quy tuyến tính</li><li data-i18n="252">Jupyter Notebook</li></ul>
+        <div class="pc-links"><a data-i18n="253" class="pill outline" href="https://github.com/hoanhh4977/UTH_Python_CK" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </div>
+    </template>
+    <template id="tpl-p6">
+      <div class="pd-media"><div class="pd-cover"><img src="images/python-code.jpg" alt="Logo Python trên nền mã nguồn Python" loading="lazy" draggable="false"></div></div>
+      <div class="pd-body">
+        <p data-i18n="254" class="pd-kind">Môn Ngôn ngữ lập trình Python · Cá nhân</p>
+        <h3 data-i18n="255" id="pd-title">Python Programming</h3>
+        <p data-i18n="256" class="pd-desc">Tập hợp bài tập theo từng buổi học Python, kèm dữ liệu mẫu dạng CSV và JSON.</p>
+        
+        <div class="pd-did"><h4 data-i18n="257">Mình đã làm</h4>
+<ul class="points">
+<li data-i18n="258">Học lập trình Python và làm bài tập theo từng buổi của môn Ngôn ngữ lập trình Python.</li>
+<li data-i18n="259">Thực hành làm việc với dữ liệu mẫu dạng CSV và JSON.</li>
+</ul></div>
+        <ul class="pc-tags"><li data-i18n="260">Python</li><li data-i18n="261">Jupyter Notebook</li><li data-i18n="262">CSV / JSON</li></ul>
+        <div class="pc-links"><a data-i18n="263" class="pill outline" href="https://github.com/hoanhh4977/Python_Programming" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </div>
+    </template>
+  <script src="lang-en.js"></script>
+  <script src="i18n.js"></script>
+  <script src="vision.js"></script>
+  <script src="projects.js"></script>
   <script src="hero.js"></script>
   <script src="world.js"></script>
 </body>
